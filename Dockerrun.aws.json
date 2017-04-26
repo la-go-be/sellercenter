@@ -1,0 +1,123 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "volumes": [
+        {
+            "name": "letsencrypt-etc",
+            "host": {
+                "sourcePath": "/etc/letsencrypt"
+            }
+        },
+        {
+            "name": "letsencrypt-var-lib",
+            "host": {
+                "sourcePath": "/var/lib/letsencrypt"
+            }
+        },
+        {
+            "name": "letsencrypt-webroot",
+            "host": {
+                "sourcePath": "/tmp/letsencrypt/www"
+            }
+        },
+        {
+            "name": "reload-server-conf",
+            "host": {
+                "sourcePath": "/var/run/docker.sock"
+            }
+        }
+    ],
+    "containerDefinitions": [
+        {
+            "name": "apis",
+            "image": "lagobetech/lgbsc-backend:1.0.4",
+            "environment": [
+                {
+                  "name": "NODE_ENV",
+                  "value": "develop"
+                }
+            ],
+            "essential": true,
+            "memoryReservation": 128,
+            "portMappings": [
+                {
+                    "hostPort": 8000,
+                    "containerPort": 8000
+                }
+            ]
+        },
+        {
+            "name": "www",
+            "image": "lagobetech/lgbsc-frontend:1.0.7",
+            "essential": true,
+            "memoryReservation": 128,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                },
+                {
+                    "hostPort": 443,
+                    "containerPort": 443
+                }
+            ],
+            "links": [
+                "apis"
+            ],
+            "mountPoints": [
+                {
+                    "sourceVolume": "letsencrypt-etc",
+                    "containerPath": "/etc/letsencrypt"
+                },
+                {
+                    "sourceVolume": "letsencrypt-webroot",
+                    "containerPath": "/tmp/letsencrypt/www"
+                }
+            ]
+        },
+        {
+            "name": "letsencrypt",
+            "image": "gordonchan/auto-letsencrypt",
+            "environment": [
+                {
+                  "name": "DOMAINS",
+                  "value": "sc.lagobe.com"
+                },
+                {
+                  "name": "EMAIL",
+                  "value": "a@lagobe.com"
+                },
+                {
+                  "name": "SERVER_CONTAINER",
+                  "value": "www"
+                },
+                {
+                  "name": "WEBROOT_PATH",
+                  "value": "/tmp/letsencrypt/www"
+                }
+            ],
+            "essential": true,
+            "memoryReservation": 128,
+            "links": [
+                "www"
+            ],
+            "mountPoints": [
+                {
+                    "sourceVolume": "letsencrypt-etc",
+                    "containerPath": "/etc/letsencrypt"
+                },
+                {
+                    "sourceVolume": "letsencrypt-var-lib",
+                    "containerPath": "/var/lib/letsencrypt"
+                },
+                {
+                    "sourceVolume": "letsencrypt-webroot",
+                    "containerPath": "/tmp/letsencrypt/www"
+                },
+                {
+                    "sourceVolume": "reload-server-conf",
+                    "containerPath": "/var/run/docker.sock"
+                }
+            ]
+        }
+    ]
+}

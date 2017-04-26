@@ -1,0 +1,18 @@
+{
+    "jwtSecret": "A5tpUn3w8knbYz98",
+    "tokenLifeTime": "30m",
+    "database": {
+        "driver": "mysql",
+        "host": "localhost",
+        "name": "lagobe",
+        "user": "root",
+        "password": "mnbvcxzA"
+    },
+    "aws": {
+        "accessKeyID": "AKIAIGNEJBRH5P36764A",
+        "secretAccessKey": "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",
+        "region": "ap-southeast-1",
+        "s3Bucket": "lagobe",
+        "s3BasePath": "documents"
+    }
+}
