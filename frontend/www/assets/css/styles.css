@@ -92,7 +92,7 @@ header .header-background {
 }
 header .header-background img {
   width: 100%;
-  min-width: 1042px;
+  min-width: 1178px;
   -ms-flex-item-align: start;
   -webkit-align-self: flex-start;
   align-self: flex-start;
@@ -111,7 +111,7 @@ header .header-content .container {
 header .header-content .container .register-dialog {
   border-radius: 6px;
   float: none;
-  margin-top: 90px;
+  margin-top: 80px;
   width: 100%;
   max-width: 320px;
   background-color: #ffffff;
@@ -154,6 +154,7 @@ header .header-content .container .register-dialog form {
   background-color: #ffffff;
   border-radius: 0px 0px 6px 6px;
 }
+header .header-content .container .register-dialog form .form-group,
 header .header-content .container .register-dialog form .form-control {
   margin-bottom: 10px;
 }
@@ -237,7 +238,7 @@ header .sc-header .switch-lang:active {
 header .navbar-default {
   background: none;
   border: none;
-  padding-top: 14px;
+  padding-top: 12px;
   padding-bottom: 20px;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
@@ -278,7 +279,7 @@ header .navbar-default .navbar-brand {
   height: auto;
   padding: 0;
   padding-left: 15px;
-  padding-top: 18px;
+  padding-top: 0px;
 }
 header .navbar-default .navbar-brand img {
   width: 220px;
@@ -919,7 +920,7 @@ form textarea.form-control {
     margin-top: 20px;
   }
   header .navbar-default {
-    padding: 20px;
+    padding: 12px 15px 20px 15px;
   }
   header .navbar-default .navbar-toggle {
     margin-top: 11px;
@@ -1136,7 +1137,7 @@ notify-saved {
   }
   header .header-content .container .register-dialog {
     float: right;
-    margin-top: 33px;
+    margin-top: 80px;
   }
 }
 header .navbar-default ul.navbar-nav li a {

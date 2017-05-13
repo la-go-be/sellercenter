@@ -120,6 +120,7 @@ var MainController = function (_ParentController) {
 
         _this2.loadLabel('landingpage');
         _this2.form = {};
+        _this2.agree = true;
         _this2.notifyError = {
             signin: false
         };
@@ -303,7 +304,9 @@ var UserController = function () {
                 }
             }
         };
+        this.signOnbehalfOfSwitchLastModified = this.signOnbehalfOfSwitch;
         this.signupInfoLastModified = JSON.parse(JSON.stringify(this.signupInfo));
+        this.imageLastModified = JSON.parse(JSON.stringify(this.image));
 
         this.init();
     }
@@ -352,7 +355,9 @@ var UserController = function () {
                         });
                         data.address.isDocumentDropSamePickup = data.address.isDocumentDropSamePickup == 1;
 
+                        _this5.signOnbehalfOfSwitchLastModified = _this5.signOnbehalfOfSwitch;
                         _this5.signupInfo = JSON.parse(JSON.stringify(data));
+                        _this5.signupInfoLastModified = JSON.parse(JSON.stringify(_this5.signupInfo));
 
                         if (data.store.individual.document.citizenCard) {
                             _this5.getStoreDocumentURL('individual', 'citizenCard');
@@ -372,13 +377,20 @@ var UserController = function () {
                         $('#addressSwitchDocumentDropSamePickup').trigger('loadData');
                     } else {
                         var userStorage = JSON.parse(_this5._$window.localStorage.user);
+
                         _this5.signupInfo.store.individual.register.firstName = userStorage.firstName;
                         _this5.signupInfo.store.individual.register.lastName = userStorage.lastName;
                         _this5.signupInfo.store.individual.register.phone = userStorage.phone;
                         _this5.signupInfo.store.individual.register.email = userStorage.email;
-
                         _this5.signupInfo.store.individual.businessType = "individual";
                         _this5.signupInfo.bank.accountType = "ออมทรัพย์";
+
+                        _this5.signupInfoLastModified.store.individual.register.firstName = userStorage.firstName;
+                        _this5.signupInfoLastModified.store.individual.register.lastName = userStorage.lastName;
+                        _this5.signupInfoLastModified.store.individual.register.phone = userStorage.phone;
+                        _this5.signupInfoLastModified.store.individual.register.email = userStorage.email;
+                        _this5.signupInfoLastModified.store.individual.businessType = "individual";
+                        _this5.signupInfoLastModified.bank.accountType = "ออมทรัพย์";
                     }
                 }, function (error) {
                     alert(error.message);
@@ -391,7 +403,9 @@ var UserController = function () {
             var _this6 = this;
 
             this._userService.save(this.signupInfo).then(function (data) {
+                _this6.signOnbehalfOfSwitchLastModified = _this6.signOnbehalfOfSwitch;
                 _this6.signupInfoLastModified = JSON.parse(JSON.stringify(_this6.signupInfo));
+                _this6.imageLastModified = JSON.parse(JSON.stringify(_this6.image));
 
                 $('#notifySaved').trigger('show');
             }, function (error) {
@@ -433,6 +447,7 @@ var UserController = function () {
 
             this._userService.getAWSS3URL(this.signupInfo.store[businessType].document[documentName]).then(function (data) {
                 _this9.image[businessType][documentName] = data.awsS3URL;
+                _this9.imageLastModified[businessType][documentName] = data.awsS3URL;
             }, function (error) {
                 alert(error.message);
             });
@@ -456,6 +471,8 @@ var UserController = function () {
         key: "getProvinces",
         value: function getProvinces(addressType, queries) {
             var _this11 = this;
+
+            this.signupInfo.address[addressType].province = "";
 
             this.provinces[addressType] = [];
             this.amphurs[addressType] = [];
@@ -486,6 +503,8 @@ var UserController = function () {
         value: function getAmphurs(addressType, queries) {
             var _this12 = this;
 
+            this.signupInfo.address[addressType].amphur = "";
+
             this.amphurs[addressType] = [];
             this.districts[addressType] = [];
 
@@ -515,6 +534,8 @@ var UserController = function () {
         value: function getDistricts(addressType, queries) {
             var _this13 = this;
 
+            this.signupInfo.address[addressType].district = "";
+
             this.districts[addressType] = [];
 
             var isDefineQueries = queries != undefined;
@@ -542,6 +563,15 @@ var UserController = function () {
         key: "summaryValue",
         value: function summaryValue(value) {
             return value ? value : "-";
+        }
+    }, {
+        key: "summaryBusinessType",
+        value: function summaryBusinessType(value) {
+            var businessType = {
+                'individual': 'ส่วนตัว',
+                'company': 'นิติบุคคล'
+            };
+            return businessType[value];
         }
     }, {
         key: "summarySelectValue",
@@ -745,7 +775,7 @@ function mainPage() {
                 //                },
 
                 scrollMenu: function scrollMenu() {
-                    var num = 50; //number of pixels before modifying styles
+                    var num = 80; //number of pixels before modifying styles
                     if ($(window).scrollTop() > num) {
                         $('nav').addClass('scrolled');
                     }

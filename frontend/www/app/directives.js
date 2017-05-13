@@ -168,7 +168,7 @@ function mainPage() {
 //                },
 
                 scrollMenu: function () {
-                    var num = 50; //number of pixels before modifying styles
+                    var num = 80; //number of pixels before modifying styles
                     if ($(window).scrollTop() > num) {
                         $('nav').addClass('scrolled');
                     }

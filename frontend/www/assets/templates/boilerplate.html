@@ -84,9 +84,8 @@
         </nav>
         <div class="header-background">
 <!--            <img src="assets/img/freeze/bg-header.jpg" />-->
-            <img src="assets/img/freeze/scHeaderMWH.jpg" />
-
-
+            <!--<img src="assets/img/freeze/scHeaderMWH.jpg" />-->
+            <img src="assets/img/freeze/Lagobe_SellerCenter_www_H.jpg" />
 
         </div>
         <div class="header-content">
@@ -122,11 +121,11 @@
                                     <input class="form-control" name="phone" ng-model="main.form.phone" maxlength="10" placeholder="{{main.label.phone}}" type="text" />
                                     <input class="form-control" name="email" ng-model="main.form.email" maxlength="100" placeholder="{{main.label.email}}" type="email" />
                                     <input class="form-control" name="password" ng-model="main.form.password" maxlength="32" placeholder="{{main.label.password}}" type="password" />
-                                    <p class="notify-error"><span ng-show="main.notifyError.signin">{{main.label['notify-error']['signup']}}</span></p>
-                                    <button class="btn btn-lg btn-primary btn-block" type="submit">{{main.label.signup}}</button>
+                                    <p class="notify-error"><span ng-show="main.notifyError.signup">{{main.label['notify-error']['signup']}}</span></p>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="!main.agree">{{main.label.signup}}</button>
                                     <br />
                                     <div class="agreement">
-                                        <div><input type="checkbox" checked /></div>
+                                        <div><input ng-model="main.agree" type="checkbox" /></div>
                                         <div>{{main.label['agreement']}}</div>
                                     </div>
                                     <div align="center"><a href="#" ng-click="main.viewContract()">{{main.label['view-contract']}}</a></div>
@@ -144,8 +143,7 @@
                                         <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password" placeholder="{{main.label['password']}}" ng-model="main.user.password" ng-change="main.clearNotifyError()">
                                         <span class="help-block"></span>
                                     </div>
-                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
-                                    <div class="justify">
+                                    <div class="justify" style="display: none;">
                                         <label class="remember">
                                             <input type="checkbox" name="remember" id="remember"> {{main.label['remember']}}
                                         </label>

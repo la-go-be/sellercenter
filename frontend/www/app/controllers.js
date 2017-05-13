@@ -48,6 +48,7 @@ class MainController extends ParentController {
 
 		this.loadLabel('landingpage');
 		this.form = {};
+		this.agree = true;
         this.notifyError = {
             signin: false
         };
@@ -223,7 +224,9 @@ class UserController{
                 }
             }
         };
+		this.signOnbehalfOfSwitchLastModified = this.signOnbehalfOfSwitch;
         this.signupInfoLastModified = JSON.parse(JSON.stringify(this.signupInfo));
+		this.imageLastModified = JSON.parse(JSON.stringify(this.image));
         
         this.init();
 	}
@@ -279,7 +282,9 @@ class UserController{
 							});
 							data.address.isDocumentDropSamePickup = (data.address.isDocumentDropSamePickup == 1);
 							
+							this.signOnbehalfOfSwitchLastModified = this.signOnbehalfOfSwitch;
                             this.signupInfo = JSON.parse(JSON.stringify(data));
+							this.signupInfoLastModified = JSON.parse(JSON.stringify(this.signupInfo));
 							
 							if (data.store.individual.document.citizenCard) {
 								this.getStoreDocumentURL('individual', 'citizenCard');
@@ -300,13 +305,20 @@ class UserController{
                         }
 						else {
 							let userStorage = JSON.parse(this._$window.localStorage.user);
+							
 							this.signupInfo.store.individual.register.firstName = userStorage.firstName;
 							this.signupInfo.store.individual.register.lastName = userStorage.lastName;
 							this.signupInfo.store.individual.register.phone = userStorage.phone;
 							this.signupInfo.store.individual.register.email = userStorage.email;
-							
 							this.signupInfo.store.individual.businessType = "individual";
 							this.signupInfo.bank.accountType = "ออมทรัพย์";
+							
+							this.signupInfoLastModified.store.individual.register.firstName = userStorage.firstName;
+							this.signupInfoLastModified.store.individual.register.lastName = userStorage.lastName;
+							this.signupInfoLastModified.store.individual.register.phone = userStorage.phone;
+							this.signupInfoLastModified.store.individual.register.email = userStorage.email;
+							this.signupInfoLastModified.store.individual.businessType = "individual";
+							this.signupInfoLastModified.bank.accountType = "ออมทรัพย์";
 						}
                     },
                     (error) => {
@@ -320,7 +332,9 @@ class UserController{
         this._userService.save(this.signupInfo)
             .then(
                 (data) => {
+					this.signOnbehalfOfSwitchLastModified = this.signOnbehalfOfSwitch;
                     this.signupInfoLastModified = JSON.parse(JSON.stringify(this.signupInfo));
+					this.imageLastModified = JSON.parse(JSON.stringify(this.image));
 
                     $('#notifySaved').trigger('show');
                 },
@@ -360,6 +374,7 @@ class UserController{
             .then(
                 (data) => {
 					this.image[businessType][documentName] = data.awsS3URL;
+					this.imageLastModified[businessType][documentName] = data.awsS3URL;
                 },
                 (error) => {
                     alert(error.message);
@@ -380,6 +395,8 @@ class UserController{
     }
     
     getProvinces(addressType, queries) {
+		this.signupInfo.address[addressType].province = "";
+		
         this.provinces[addressType] = [];
         this.amphurs[addressType] = [];
         this.districts[addressType] = [];
@@ -409,6 +426,8 @@ class UserController{
     }
 
     getAmphurs(addressType, queries) {
+		this.signupInfo.address[addressType].amphur = "";
+		
         this.amphurs[addressType] = [];
         this.districts[addressType] = [];
 		
@@ -438,7 +457,9 @@ class UserController{
     }
     
     getDistricts(addressType, queries) {
-        this.districts[addressType] = [];
+		this.signupInfo.address[addressType].district = "";
+        
+		this.districts[addressType] = [];
 		
 		let isDefineQueries = (queries != undefined);
 		
@@ -467,6 +488,14 @@ class UserController{
 	
 	summaryValue(value) {
 		return value? value: "-";
+	}
+	
+	summaryBusinessType(value) {
+		let businessType = {
+			'individual': 'ส่วนตัว',
+			'company': 'นิติบุคคล'
+		};
+		return businessType[value]; 
 	}
 	
 	summarySelectValue(items, selectValue) {
