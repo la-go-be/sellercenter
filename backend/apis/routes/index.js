@@ -10,8 +10,7 @@ var modules = [
     'bank',
     'company',
     'aws-s3',
-    'mail',
-    'admin'
+    'mail'
 ];
 modules.forEach((module) => {
     var arrParams = require(global.modulePath(module, 'route'));

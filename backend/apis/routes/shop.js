@@ -11,9 +11,4 @@ module.exports = [
         endpoint: '/shops/user/:userAccountID',
         callback: shopCtrl.createOrUpdateByUserAccountID
     },
-    {
-        verb: 'get',
-        endpoint: '/shops/user2/:userAccountID',
-        callback: shopCtrl.getByUserAccountID2
-    },
 ];
