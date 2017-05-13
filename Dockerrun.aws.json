@@ -61,8 +61,7 @@
                 }
             ],
             "links": [
-                "apis",
-                "mylineme-blog"
+                "apis"
             ],
             "mountPoints": [
                 {

@@ -5,7 +5,8 @@ var Shop = models.Shop;
 
 module.exports = {
     getByUserAccountID,
-    createOrUpdateByUserAccountID
+    createOrUpdateByUserAccountID,
+    getByUserAccountID2
 }
 
 function getByUserAccountID(req, res) {
@@ -35,5 +36,15 @@ function createOrUpdateByUserAccountID(req, res) {
                 res.status(200).json(result);
             });
         }
+    });
+}
+
+function getByUserAccountID2(req, res) {
+    var userAccountID = req.params.userAccountID;
+    
+    var _Shop = Shop.build();
+    
+    _Shop.getByUserAccountID2(userAccountID).then(function(shop) {
+        res.status(200).json(shop);
     });
 }
