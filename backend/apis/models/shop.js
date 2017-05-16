@@ -219,12 +219,23 @@ module.exports = function (sequelize, DataTypes) {
     }, {
         tableName: "shop",
         instanceMethods: {
+            getItems,
             getByUserAccountID,
             createByUserAccountID,
-            updateByUserAccountID
+            updateByUserAccountID,
+            getSummaryByID
         }
     });
     return Shop;
+
+    function getItems() {
+        return Shop.findAll({
+            attributes: [['id', 'shopID'], ['store_name', 'shopName']],
+            raw: true
+        }).then(function(shop) {
+            return shop;
+        });
+    }
 
     function getByUserAccountID(userAccountID) {
         return Shop.findOne({
@@ -443,6 +454,149 @@ module.exports = function (sequelize, DataTypes) {
         }).then(function(shop) {
             return {
                 success: true
+            };
+        });
+    }
+    
+    function getSummaryByID(shopID) {
+        return sequelize.query(`
+            SELECT
+                shop.store_name,
+                CASE
+                    WHEN shop.store_business_type = 'individual' THEN 'บุคคล'
+                    WHEN shop.store_business_type = 'company' THEN 'นิติบุคคล'
+                END AS store_business_type,
+                shop.store_individual_register_first_name,
+                shop.store_individual_register_last_name,
+                shop.store_individual_register_citizen_id,
+                shop.store_individual_register_phone,
+                shop.store_individual_register_line_id,
+                shop.store_individual_register_email,
+                shop.store_individual_register_facebook,
+                shop.store_individual_contact_first_name,
+                shop.store_individual_contact_last_name,
+                shop.store_individual_contact_citizen_id,
+                shop.store_individual_contact_phone,
+                shop.store_individual_contact_line_id,
+                shop.store_individual_contact_email,
+                shop.store_individual_contact_facebook,
+                shop.store_individual_document_citizen_card,
+                shop.store_individual_document_home_register,
+                cprefix.name AS store_company_register_company_prefix_name,
+                shop.store_company_register_company_name,
+                shop.store_company_register_tax_id,
+                shop.store_company_register_phone,
+                shop.store_company_register_line_id,
+                shop.store_company_register_email,
+                shop.store_company_register_facebook,
+                shop.store_company_contact_first_name,
+                shop.store_company_contact_last_name,
+                shop.store_company_contact_citizen_id,
+                shop.store_company_contact_phone,
+                shop.store_company_contact_line_id,
+                shop.store_company_contact_email,
+                shop.store_company_contact_facebook,
+                shop.store_company_document_company_certificate,
+                shop.store_company_document_trade_register,
+                bank.name AS bank_name,
+                shop.bank_branch,
+                shop.bank_account_number,
+                shop.bank_account_type,
+                shop.bank_account_name,
+                shop.address_pickup_zipcode,
+                shop.address_pickup_province,
+                shop.address_pickup_amphur,
+                shop.address_pickup_district,
+                shop.address_pickup_other,
+                shop.address_document_drop_zipcode,
+                shop.address_document_drop_province,
+                shop.address_document_drop_amphur,
+                shop.address_document_drop_district,
+                shop.address_document_drop_other
+            FROM shop
+            LEFT JOIN bank ON shop.bank_id = bank.id
+            LEFT JOIN \`company.prefix\` cprefix ON shop.store_company_register_company_prefix = cprefix.id
+            WHERE shop.id=:shopID
+        `, {
+            replacements: { shopID },
+            type: sequelize.QueryTypes.SELECT
+        }).then(function(shop) {
+            return {
+                store: {
+                    storeName: shop[0].store_name,
+                    businessType: shop[0].store_business_type,
+                    individual: {
+                        register: {
+                            firstName: shop[0].store_individual_register_first_name,
+                            lastName: shop[0].store_individual_register_last_name,
+                            citizenID: shop[0].store_individual_register_citizen_id,
+                            phone: shop[0].store_individual_register_phone,
+                            lineID: shop[0].store_individual_register_line_id,
+                            email: shop[0].store_individual_register_email,
+                            facebook: shop[0].store_individual_register_facebook
+                        },
+                        contact: {
+                            firstName: shop[0].store_individual_contact_first_name,
+                            lastName: shop[0].store_individual_contact_last_name,
+                            citizenID: shop[0].store_individual_contact_citizen_id,
+                            phone: shop[0].store_individual_contact_phone,
+                            lineID: shop[0].store_individual_contact_line_id,
+                            email: shop[0].store_individual_contact_email,
+                            facebook: shop[0].store_individual_contact_facebook
+                        },
+                        document: {
+                            citizenCard: shop[0].store_individual_document_citizen_card,
+                            homeRegister: shop[0].store_individual_document_home_register
+                        }
+                    },
+                    company: {
+                        register: {
+                            companyPrefixName: shop[0].store_company_register_company_prefix_name,
+                            companyName: shop[0].store_company_register_company_name,
+                            taxID: shop[0].store_company_register_tax_id,
+                            phone: shop[0].store_company_register_phone,
+                            lineID: shop[0].store_company_register_line_id,
+                            email: shop[0].store_company_register_email,
+                            facebook: shop[0].store_company_register_facebook
+                        },
+                        contact: {
+                            firstName: shop[0].store_company_contact_first_name,
+                            lastName: shop[0].store_company_contact_last_name,
+                            citizenID: shop[0].store_company_contact_citizen_id,
+                            phone: shop[0].store_company_contact_phone,
+                            lineID: shop[0].store_company_contact_line_id,
+                            email: shop[0].store_company_contact_email,
+                            facebook: shop[0].store_company_contact_facebook
+                        },
+                        document: {
+                            companyCertificate: shop[0].store_company_document_company_certificate,
+                            tradeRegister: shop[0].store_company_document_trade_register
+                        }
+                    }
+                },
+                bank: {
+                    bankName: shop[0].bank_name,
+                    bankBranch: shop[0].bank_branch,
+                    accountNumber: shop[0].bank_account_number,
+                    accountType: shop[0].bank_account_type,
+                    accountName: shop[0].bank_account_name
+                },
+                address: {
+                    pickup: {
+                        zipCode: shop[0].address_pickup_zipcode,
+                        province: shop[0].address_pickup_province,
+                        amphur: shop[0].address_pickup_amphur,
+                        district: shop[0].address_pickup_district,
+                        other: shop[0].address_pickup_other
+                    },
+                    documentDrop: {
+                        zipCode: shop[0].address_document_drop_zipcode,
+                        province: shop[0].address_document_drop_province,
+                        amphur: shop[0].address_document_drop_amphur,
+                        district: shop[0].address_document_drop_district,
+                        other: shop[0].address_document_drop_other
+                    }
+                }
             };
         });
     }

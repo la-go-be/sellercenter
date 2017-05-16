@@ -10,5 +10,5 @@ module.exports = [
         verb: 'put',
         endpoint: '/shops/user/:userAccountID',
         callback: shopCtrl.createOrUpdateByUserAccountID
-    },
+    }
 ];
