@@ -1,0 +1,233 @@
+.display-flex {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+@font-face {
+  font-family: "Montserrat-Light";
+  src: url('/assets/fonts/Montserrat-Light/Montserrat-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url('/assets/fonts/Montserrat-Regular/Montserrat-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "SukhumvitSet-Text";
+  src: url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.eot);
+  src: url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.eot?#iefix) format('embedded-opentype'), url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.ttf) format('truetype'), url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.woff) format('woff'), url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.svg) format('svg');
+}
+html,
+body,
+div[ui-view] {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Kanit', 'SukhumvitSet-Text', 'Lato', Arial;
+}
+shop-page {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: start;
+  -moz-box-pack: start;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -ms-flex-line-pack: stretch;
+  -webkit-align-content: stretch;
+  align-content: stretch;
+  position: relative;
+  height: 100%;
+}
+shop-page header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #000080;
+}
+shop-page header .logo {
+  width: 180px;
+  height: auto;
+  margin-left: 20px;
+}
+shop-page header .navbar-toggle {
+  margin-left: 15px;
+}
+shop-page header a.signout {
+  float: right;
+  margin-right: 20px;
+  color: #ffffff;
+}
+shop-page header a.signout i.fa {
+  line-height: 59px;
+}
+shop-page .wrapper {
+  -webkit-box-flex: 1;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: 1;
+  /* OLD - Firefox 19- */
+  -webkit-flex: 1;
+  /* Chrome */
+  -ms-flex: 1;
+  /* IE 10 */
+  flex: 1;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  /* same as flex: 1 1 auto; */
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: normal;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: start;
+  -moz-box-pack: start;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -ms-flex-line-pack: stretch;
+  -webkit-align-content: stretch;
+  align-content: stretch;
+  overflow: hidden;
+}
+shop-page .wrapper .left-side,
+shop-page .wrapper .right-side {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+shop-page .wrapper .left-side {
+  background-color: lavender;
+}
+shop-page .wrapper .right-side {
+  background-color: white;
+}
+shop-page .wrapper .navbar-collapse {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+shop-page .wrapper ul.shop-items {
+  list-style-type: none;
+  padding: 0px;
+}
+shop-page .wrapper ul.shop-items > li.active {
+  background-color: #ffffff;
+}
+shop-page .wrapper ul.shop-items > li > a.shop-item {
+  display: block;
+  padding: 15px 0;
+  padding-left: 15px;
+  color: #000080;
+  font-size: 16pt;
+}
+shop-page .wrapper ul.shop-items > li > a.shop-item:hover,
+shop-page .wrapper ul.shop-items > li > a.shop-item:focus {
+  color: #000080;
+  background-color: #ffffff;
+  text-decoration: none;
+}
+shop-page .wrapper .shop-list,
+shop-page .wrapper .shop-detail {
+  height: 100%;
+  overflow: auto;
+}
+shop-page .wrapper .form-control[readonly] {
+  color: black;
+}
+shop-page .wrapper .btn-save {
+  margin: 15px 8px 15px 0px;
+  width: 50%;
+}
+shop-page .wrapper .btn-cancel {
+  margin: 15px 0px 15px 8px;
+  width: 50%;
+}
+shop-page .wrapper .BDName {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+shop-page .wrapper label {
+  display: block;
+}
+shop-page .wrapper img {
+  margin: 0 auto;
+}
+shop-page .wrapper .summary-value {
+  line-height: 34px;
+}
+@media screen and (max-width: 767px) {
+  shop-page header .logo {
+    margin-left: -15px;
+  }
+  shop-page header .navbar-toggle {
+    margin-left: 15px;
+  }
+  shop-page .wrapper ul.shop-items {
+    width: 200px;
+    margin: 0px;
+  }
+}
+@media screen and (min-width: 768px) {
+  shop-page .wrapper ul.shop-items > li > a.shop-item {
+    padding-left: 14%;
+  }
+}
+@media screen and (min-width: 992px) {
+  shop-page .wrapper ul.shop-items > li > a.shop-item {
+    padding-left: 25%;
+  }
+}

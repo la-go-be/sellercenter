@@ -1,0 +1,188 @@
+@import "flex.less";
+
+@base: #000080;
+
+//@font-stack: 'Montserrat-Light', 'Montserrat-Regular', 'Kanit', 'SukhumvitSet-Text', 'Lato', Arial;
+//@font-stack: 'Montserrat-Regular', 'Kanit', 'SukhumvitSet-Text', 'Lato', Arial;
+@font-stack: 'Kanit', 'SukhumvitSet-Text', 'Lato', Arial;
+
+@lightGrey:   #999999;
+@darkGrey:    #666666;
+@white:       #ffffff;
+
+@font-face {
+    font-family: "Montserrat-Light";
+    src: url('/assets/fonts/Montserrat-Light/Montserrat-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url('/assets/fonts/Montserrat-Regular/Montserrat-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "SukhumvitSet-Text";
+  src: url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.eot);
+  src: url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.eot?#iefix) format('embedded-opentype'), url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.ttf) format('truetype'), url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.woff) format('woff'), url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.svg) format('svg');
+}
+
+html, body, div[ui-view]{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: @font-stack;
+}
+
+
+shop-page {
+    .display-flex;
+    .flex-direction(column);
+    .justify-content(flex-start);
+    .align-items(stretch);
+    .align-content(stretch);
+    position: relative;
+    height: 100%;
+    header {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: @base;
+        .logo {
+            width: 180px;
+            height: auto;
+            margin-left: 20px;
+        }
+        .navbar-toggle {
+            margin-left: 15px;
+        }
+        a.signout {
+            float: right;
+            margin-right: 20px;
+            color: @white;
+            i.fa {
+                line-height: 59px;
+            }
+        }
+    }
+    .wrapper {
+        .flex(1); /* same as flex: 1 1 auto; */
+        .display-flex;
+        .flex-direction(row);
+        .justify-content(flex-start);
+        .align-items(stretch);
+        .align-content(stretch);
+        overflow: hidden;
+        .left-side, .right-side{
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+        .left-side {
+            background-color: lavender;
+        }
+        .right-side {
+            background-color: white;
+        }
+        .navbar-collapse{
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+        ul.shop-items{
+            list-style-type: none;
+            padding: 0px;
+            & > li {
+                &.active {
+                    background-color: @white;
+                }
+                & > a.shop-item {
+                    display: block;
+                    padding: 15px 0;
+                    padding-left: 15px;
+                    color: @base;
+                    font-size: 16pt;
+                    &:hover, &:focus {
+                        color: @base;
+                        background-color: @white;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        .shop-list, .shop-detail {
+            height: 100%;
+            overflow: auto;
+        }
+        .form-control[readonly] {
+            color: black;
+        }
+        .btn-save {
+            margin: 15px 8px 15px 0px;
+            width: 50%;
+        }
+        .btn-cancel {
+            margin: 15px 0px 15px 8px;
+            width: 50%;
+        }
+        .BDName {
+            .display-flex;
+            .align-items(center);
+        }
+        label {
+            display: block;
+        }
+        img {
+            margin: 0 auto;
+        }
+        .summary-value {
+            line-height: 34px;
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 767px) {
+    shop-page {
+        header {
+            .logo {
+                margin-left: -15px;
+            }
+            .navbar-toggle {
+                margin-left: 15px;
+            }
+        }
+        .wrapper {
+            ul.shop-items{
+                width: 200px;
+                margin: 0px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    shop-page {
+        .wrapper {
+            ul.shop-items{
+                & > li {
+                    & > a.shop-item {
+                        padding-left: 14%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    shop-page {
+        .wrapper {
+            ul.shop-items{
+                & > li {
+                    & > a.shop-item {
+                        padding-left: 25%;
+                    }
+                }
+            }
+        }
+    }
+}

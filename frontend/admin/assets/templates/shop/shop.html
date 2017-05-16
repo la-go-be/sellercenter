@@ -1,0 +1,338 @@
+<shop-page>
+    <header>
+        <img src="assets/img/logo-white.png" alt="" class="logo">
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="fa fa-bars fa-lg"></span>
+        </button>
+        
+        <a class="signout" href="#" ng-click="shop.signout()"><i class="fa fa-sign-out fa-2x"></i></a>
+    </header>
+    <div class="wrapper">
+        <div class="col-md-3 col-sm-3 left-side">
+            <div class="shop-list">
+                <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="shop-items">
+                        <li ng-repeat="item in shop.items | orderBy: 'shopName'"><a class="shop-item" href="#" shop-item="{{item.shopID}}">{{item.shopName}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 col-sm-9 col-xs-12 right-side">
+            <div class="shop-detail">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-5 col-md-push-1">
+                            <h1>ข้อมูลร้านค้า</h1>
+                            <div class="form-group">
+                                <label class="control-label">ชื่อร้านค้า</label>
+                                <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.storeName)"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ลงทะเบียนในนาม</label>
+                                <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.businessType)"></span>
+                            </div>
+    
+                            <div ng-switch on="shop.info.store.businessType">
+                                <div ng-switch-when="บุคคล">
+                                    <form id="storeIndividualRegisterForm">
+                                        <div class="form-group">
+                                            <label class="control-label">ชื่อ - นามสกุล ผู้ลงทะเบียน</label>
+                                            <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.individual.register.firstName)" style="margin-right: 4px;"></span>
+                                            <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.individual.register.lastName)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">เลขบัตรประจำตัวประชาชน</label>
+                                            <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.individual.register.citizenID)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">เบอร์โทรศัพท์</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.individual.register.phone)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">LINE ID</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.individual.register.lineID)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">อีเมล</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.individual.register.email)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">Facebook</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.individual.register.facebook)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <form id="storeIndividualContactForm">
+                                        <div class="form-group">
+                                            <label class="control-label">ชื่อ - นามสกุล ผู้ติดต่อ</label>
+                                            <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.individual.contact.firstName)" style="margin-right: 4px;"></span>
+                                            <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.individual.contact.lastName)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">เลขบัตรประจำตัวประชาชน</label>
+                                            <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.individual.contact.citizenID)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">เบอร์โทรศัพท์</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.individual.contact.phone)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">LINE ID</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.individual.contact.lineID)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">อีเมล</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.individual.contact.email)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">Facebook</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.individual.contact.facebook)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div ng-switch-when="นิติบุคคล">
+                                    <form id="storeCompanyRegisterForm">
+                                        <div class="form-group">
+                                            <label class="control-label">ชื่อนิติบุคคล</label>
+                                            <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.company.register.companyPrefixName)"></span>
+                                            <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.company.register.companyName)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">เลขบัตรประจำตัวผู้เสียภาษี</label>
+                                            <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.company.register.taxID)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">เบอร์โทรศัพท์</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.company.register.phone)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">LINE ID</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.company.register.lineID)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">อีเมล</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.company.register.email)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">Facebook</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.company.register.facebook)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div>
+                                        <label>ผู้ติดต่อ</label>
+                                    </div>
+                                    <form id="storeCompanyContactForm">
+                                        <div class="form-group">
+                                            <label class="control-label">ชื่อ - นามสกุล</label>
+                                            <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.company.contact.firstName)" style="margin-right: 4px;"></span>
+                                            <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.company.contact.lastName)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">เลขบัตรประจำตัวประชาชน</label>
+                                            <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.company.contact.citizenID)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">เบอร์โทรศัพท์</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.company.contact.phone)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">LINE ID</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.company.contact.lineID)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">อีเมล</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.company.contact.email)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">Facebook</label>
+                                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.company.contact.facebook)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-md-push-2">
+                            <h1>สำเนาเอกสาร</h1>
+                            <div ng-switch on="shop.info.store.businessType">
+                                <div ng-switch-when="บุคคล">
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาบัตรประชาชน</label>
+                                        <span class="summary-value" ng-if="(shop.info.store.individual.document.citizenCard == '')">-</span>
+                                        <img ng-src="{{shop.image.individual.citizenCard}}" class="img-responsive" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาทะเบียนบ้าน</label>
+                                        <span class="summary-value" ng-if="(shop.info.store.individual.document.homeRegister == '')">-</span>
+                                        <img ng-src="{{shop.image.individual.homeRegister}}" class="img-responsive" />
+                                    </div>
+                                </div>
+                                <div ng-switch-when="นิติบุคคล">
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาหนังสือรับรอง</label>
+                                        <span class="summary-value" ng-if="(shop.info.store.company.document.companyCertificate == '')">-</span>
+                                        <img ng-src="{{shop.image.company.companyCertificate}}" class="img-responsive" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาทะเบียนการค้า</label>
+                                        <span class="summary-value" ng-if="(shop.info.store.company.document.tradeRegister == '')">-</span>
+                                        <img ng-src="{{shop.image.company.tradeRegister}}" class="img-responsive" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-5 col-md-push-1">
+                            <h1>ข้อมูลทางการเงิน</h1>
+                            <div class="form-group">
+                                <label class="control-label">ชื่อธนาคาร</label>
+                                <span class="summary-value" ng-bind="shop.summaryValue(shop.info.bank.bankName)"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">เลขที่บัญชี</label>
+                                <span class="summary-value" ng-bind="shop.summaryValue(shop.info.bank.accountNumber)"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">สาขา</label>
+                                <span class="summary-value" ng-bind="shop.summaryValue(shop.info.bank.bankBranch)"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ประเภทบัญชี</label>
+                                <span class="summary-value" ng-bind="shop.summaryValue(shop.info.bank.accountType)"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ชื่อบัญชี</label>
+                                <span class="summary-value" ng-bind="shop.summaryValue(shop.info.bank.accountName)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-5 col-md-push-1">
+                            <form id="addressPickupForm">
+                                <h1>ที่อยู่การรับสินค้า</h1>
+                                <div class="form-group">
+                                    <label class="control-label">รหัสไปรษณีย์</label>
+                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.address.pickup.zipCode)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">จังหวัด</label>
+                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.address.pickup.province)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">เขต / อำเภอ</label>
+                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.address.pickup.amphur)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">แขวง / ตำบล</label>
+                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.address.pickup.district)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">ที่อยู่</label>
+                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.address.pickup.other)"></span>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-5 col-md-push-2">
+                            <form id="addressDocumentDropForm">
+                                <h1>ที่อยู่การส่งเอกสาร</h1>
+                                <div class="form-group">
+                                    <label class="control-label">รหัสไปรษณีย์</label>
+                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.address.documentDrop.zipCode)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">จังหวัด</label>
+                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.address.documentDrop.province)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">เขต / อำเภอ</label>
+                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.address.documentDrop.amphur)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">แขวง / ตำบล</label>
+                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.address.documentDrop.district)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">ที่อยู่</label>
+                                    <span class="summary-value" ng-bind="shop.summaryValue(shop.info.address.documentDrop.other)"></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-5 col-md-push-1">
+                            <h1>ข้อมูลฝ่ายขาย</h1>
+    
+                            <div class="form-group">
+                                <label class="control-label">โปรโมชั่นโค๊ด</label>
+                                <span class="summary-value">SELLBEJ</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ค่าคอมมิชชั่น</label>
+                                <span class="summary-value">11%</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ชื่อพนักงานฝ่ายขาย</label>
+                                <div class="BDName">
+                                    <span class="summary-value" style="margin-right: 10px;">T1001</span>
+                                    <span name="BDFirstName" style="margin-right: 10px;">จิรัฎฐ์</span>
+                                    <span name="BDLastName" style="margin-right: 10px;">ทองคำชุม</span>
+                                    (<span name="BDNickname">เบสท์</span>)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">เบอร์โทรศัพท์</label>
+                                <span class="summary-value">0917811877</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">LINE ID</label>
+                                <span class="summary-value">lagobe.j</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">อีเมล</label>
+                                <span class="summary-value">j@lagobe.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</shop-page>

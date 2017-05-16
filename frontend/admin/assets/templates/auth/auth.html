@@ -1,0 +1,29 @@
+<auth-page>
+    <div class="signin">
+        <div class="signin-card">
+            <div class="passport">
+                <div class="background"></div>
+                <span class="text">PASSPORT</span>
+            </div>
+            <form name="signinForm" role="form" method="post" ng-submit="auth.signin()" novalidate>
+                <div class="signin-input-group">
+                    <div class="signin-input-block" style="width: 100%;">
+                        <input class="user" type="text" placeholder="username" ng-model="auth.user.username" ng-change="auth.clearNotifyError()" required />
+                    </div>
+                </div>
+                <div class="signin-notifyerr">
+                    <span ng-show="auth.notifyError.signin">Username or password incorrect</span>
+                </div>
+                <div class="signin-input-group">
+                    <div class="signin-input-block" style="width: 100%;">
+                        <input class="passwd" type="password" placeholder="password" ng-model="auth.user.password" ng-change="auth.clearNotifyError()" required />
+                    </div>
+                </div>
+                <div class="signin-submit">
+                    <button type="submit">SIGN IN</button>
+                </div>
+                <center><a href="#" class="signin-forgotpw">FORGOT PASSWORD</a></center>
+            </form>
+        </div>
+    </div>    
+</auth-page>
