@@ -26,7 +26,8 @@ RUN chmod 644                   /etc/logrotate.d/nginx && \
     chown root:root	            /etc/logrotate.d/nginx
 
 # Add files and folders of wep application
-COPY www/                       /usr/share/nginx/html/
+COPY www/                       /usr/share/nginx/html/www
+COPY admin/                     /usr/share/nginx/html/admin
 
 # Configure Supervisord
 ADD supervisord.conf          	/etc/supervisord.conf
@@ -34,9 +35,15 @@ ADD supervisord.nginx.conf      /etc/supervisord.d/
 ADD supervisord.logrotate.conf  /etc/supervisord.d/
 
 # Run
-WORKDIR /usr/share/nginx/html/
+WORKDIR /usr/share/nginx/html/www
 RUN bower install --allow-root
 RUN npm install --allow-root
+
+WORKDIR /usr/share/nginx/html/admin
+RUN bower install --allow-root
+RUN npm install --allow-root
+
+WORKDIR /usr/share/nginx/html/
 
 EXPOSE 80 443
 

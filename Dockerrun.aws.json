@@ -16,7 +16,7 @@
         {
             "name": "letsencrypt-webroot",
             "host": {
-                "sourcePath": "/tmp/letsencrypt/www"
+                "sourcePath": "/tmp/letsencrypt"
             }
         },
         {
@@ -29,7 +29,7 @@
     "containerDefinitions": [
         {
             "name": "apis",
-            "image": "lagobetech/lgbsc-backend:1.0.4",
+            "image": "lagobetech/lgbsc-backend:1.0.5",
             "environment": [
                 {
                   "name": "NODE_ENV",
@@ -47,7 +47,7 @@
         },
         {
             "name": "www",
-            "image": "lagobetech/lgbsc-frontend:1.0.9",
+            "image": "lagobetech/lgbsc-frontend:1.0.10",
             "essential": true,
             "memoryReservation": 128,
             "portMappings": [
@@ -70,7 +70,7 @@
                 },
                 {
                     "sourceVolume": "letsencrypt-webroot",
-                    "containerPath": "/tmp/letsencrypt/www"
+                    "containerPath": "/tmp/letsencrypt"
                 }
             ]
         },
@@ -80,7 +80,7 @@
             "environment": [
                 {
                   "name": "DOMAINS",
-                  "value": "sc.lagobe.com"
+                  "value": "sc.lagobe.com adm.sc.lagobe.com"
                 },
                 {
                   "name": "EMAIL",
@@ -92,7 +92,7 @@
                 },
                 {
                   "name": "WEBROOT_PATH",
-                  "value": "/tmp/letsencrypt/www"
+                  "value": "/tmp/letsencrypt"
                 }
             ],
             "essential": true,
@@ -111,7 +111,7 @@
                 },
                 {
                     "sourceVolume": "letsencrypt-webroot",
-                    "containerPath": "/tmp/letsencrypt/www"
+                    "containerPath": "/tmp/letsencrypt"
                 },
                 {
                     "sourceVolume": "reload-server-conf",
