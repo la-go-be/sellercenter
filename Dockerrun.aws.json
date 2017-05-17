@@ -80,7 +80,7 @@
             "environment": [
                 {
                   "name": "DOMAINS",
-                  "value": "'sc.lagobe.com adm.sc.lagobe.com'"
+                  "value": "sc.lagobe.com adm.sc.lagobe.com"
                 },
                 {
                   "name": "EMAIL",
