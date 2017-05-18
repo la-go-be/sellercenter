@@ -49,8 +49,12 @@
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อ - นามสกุล ผู้ลงทะเบียน</label>
                                                 <div class="display-flex">
-                                                    <input ng-model="user.signupInfo.store.individual.register.firstName" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="storeIndividualFirstName" type="text" placeholder="ชื่อ" class="form-control" style="margin-right: 4px;" required />
-                                                    <input ng-model="user.signupInfo.store.individual.register.lastName" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="storeIndividualLastName" type="text" placeholder="นามสกุล" class="form-control" style="margin-left: 4px;" required />
+                                                    <div style="width: 50%; margin-right: 4px;">
+                                                        <input ng-model="user.signupInfo.store.individual.register.firstName" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="storeIndividualFirstName" type="text" placeholder="ชื่อ" class="form-control" required />
+                                                    </div>
+                                                    <div style="width: 50%; margin-left: 4px;">
+                                                        <input ng-model="user.signupInfo.store.individual.register.lastName" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="storeIndividualLastName" type="text" placeholder="นามสกุล" class="form-control" required />
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -89,8 +93,12 @@
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อ - นามสกุล ผู้ติดต่อ</label>
                                                 <div class="display-flex">
-                                                    <input ng-model="user.signupInfo.store.individual.contact.firstName" name="storeIndividualContactFirstName" type="text" placeholder="ชื่อ" class="form-control" style="margin-right: 4px;" required />
-                                                    <input ng-model="user.signupInfo.store.individual.contact.lastName" name="storeIndividualContactLastName" type="text" placeholder="นามสกุล" class="form-control" style="margin-left: 4px;" required />
+                                                    <div style="width: 50%; margin-right: 4px;">
+                                                        <input ng-model="user.signupInfo.store.individual.contact.firstName" name="storeIndividualContactFirstName" type="text" placeholder="ชื่อ" class="form-control" required />
+                                                    </div>
+                                                    <div style="width: 50%; margin-left: 4px;">
+                                                        <input ng-model="user.signupInfo.store.individual.contact.lastName" name="storeIndividualContactLastName" type="text" placeholder="นามสกุล" class="form-control" required />
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -171,8 +179,12 @@
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อ - นามสกุล</label>
                                                 <div class="display-flex">
-                                                    <input ng-model="user.signupInfo.store.company.contact.firstName" name="storeCompanyContactFirstName" type="text" placeholder="ชื่อ" class="form-control" style="margin-right: 4px;" required />
-                                                    <input ng-model="user.signupInfo.store.company.contact.lastName" name="storeCompanyContactLastName" type="text" placeholder="นามสกุล" class="form-control" style="margin-left: 4px;" required />
+                                                    <div style="width: 50%; margin-right: 4px;">
+                                                        <input ng-model="user.signupInfo.store.company.contact.firstName" name="storeCompanyContactFirstName" type="text" placeholder="ชื่อ" class="form-control" required />
+                                                    </div>
+                                                    <div style="width: 50%; margin-left: 4px;">
+                                                        <input ng-model="user.signupInfo.store.company.contact.lastName" name="storeCompanyContactLastName" type="text" placeholder="นามสกุล" class="form-control" required />
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
