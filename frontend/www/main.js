@@ -355,7 +355,7 @@ var UserController = function () {
                         });
                         data.address.isDocumentDropSamePickup = data.address.isDocumentDropSamePickup == 1;
 
-                        _this5.signOnbehalfOfSwitchLastModified = _this5.signOnbehalfOfSwitch;
+                        _this5.signOnbehalfOfSwitchLastModified = data.store.businessType;
                         _this5.signupInfo = JSON.parse(JSON.stringify(data));
                         _this5.signupInfoLastModified = JSON.parse(JSON.stringify(_this5.signupInfo));
 

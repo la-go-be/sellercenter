@@ -282,7 +282,7 @@ class UserController{
 							});
 							data.address.isDocumentDropSamePickup = (data.address.isDocumentDropSamePickup == 1);
 							
-							this.signOnbehalfOfSwitchLastModified = this.signOnbehalfOfSwitch;
+							this.signOnbehalfOfSwitchLastModified = data.store.businessType;
                             this.signupInfo = JSON.parse(JSON.stringify(data));
 							this.signupInfoLastModified = JSON.parse(JSON.stringify(this.signupInfo));
 							
