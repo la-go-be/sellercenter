@@ -13,7 +13,7 @@
             <div class="shop-list">
                 <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
                     <ul class="shop-items">
-                        <li ng-repeat="item in shop.items | orderBy: 'shopName'"><a class="shop-item" href="#" shop-item="{{item.shopID}}">{{item.shopName}}</a></li>
+                        <li ng-repeat="item in shop.items | orderBy: 'shopName'"><a class="shop-item" href="#" shop-item="{{item.shopID}}">{{item.shopName? item.shopName: "ไม่มีชื่อร้าน"}}</a></li>
                     </ul>
                 </div>
             </div>
