@@ -45,7 +45,7 @@
 
                                 <div ng-switch on="user.signOnbehalfOfSwitch">
                                     <div ng-switch-when="individual">
-                                        <form id="storeIndividualRegisterForm">
+                                        <div id="storeIndividualRegisterForm">
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อ - นามสกุล ผู้ลงทะเบียน</label>
                                                 <div class="display-flex">
@@ -85,11 +85,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                         <div class="form-group">
                                             <input id="storeIndividualSwitchContactSameRegister" store-individual-switch-contact-same-register ng-model="user.signupInfo.store.individual.isContactSameRegister" type="checkbox" /> ผู้ติดต่อชื่อเดียวกันกับผู้ลงทะเบียน
                                         </div>
-                                        <form id="storeIndividualContactForm">
+                                        <div id="storeIndividualContactForm">
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อ - นามสกุล ผู้ติดต่อ</label>
                                                 <div class="display-flex">
@@ -129,10 +129,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                     <div ng-switch-when="company">
-                                        <form id="storeCompanyRegisterForm">
+                                        <div id="storeCompanyRegisterForm">
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อนิติบุคคล</label>
                                                 <div class="display-flex">
@@ -171,11 +171,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                         <div>
                                             <label>ผู้ติดต่อ</label>
                                         </div>
-                                        <form id="storeCompanyContactForm">
+                                        <div id="storeCompanyContactForm">
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อ - นามสกุล</label>
                                                 <div class="display-flex">
@@ -215,7 +215,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -307,7 +307,7 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-5 col-md-push-1">
-                                <form id="addressPickupForm">
+                                <div id="addressPickupForm">
                                     <h1>ที่อยู่การรับสินค้า</h1>
                                     <div class="form-group">
                                         <label class="control-label">รหัสไปรษณีย์</label>
@@ -340,13 +340,13 @@
 
                                         <input ng-model="user.signupInfo.address.pickup.other" name="pickupAddress" type="text" placeholder="ที่อยู่" class="form-control" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateAddressDocumentDropValues();" />
                                     </div>
-                                </form>
+                                </div>
                                 <div class="form-group">
                                     <input id="addressSwitchDocumentDropSamePickup" ng-model="user.signupInfo.address.isDocumentDropSamePickup" address-switch-documentdrop-same-pickup type="checkbox" /> ใช้ที่อยู่เดียวกันกับการส่งเอกสาร
                                 </div>
                             </div>
                             <div class="col-md-5 col-md-push-2">
-                                <form id="addressDocumentDropForm">
+                                <div id="addressDocumentDropForm">
                                     <h1>ที่อยู่การส่งเอกสาร</h1>
                                     <div class="form-group">
                                         <label class="control-label">รหัสไปรษณีย์</label>
@@ -379,7 +379,7 @@
 
                                         <input ng-model="user.signupInfo.address.documentDrop.other" name="documentDropAddress" type="text" placeholder="ที่อยู่" class="form-control" />
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                         <div class = "row">
@@ -465,7 +465,7 @@
         
                                 <div ng-switch on="user.signOnbehalfOfSwitchLastModified">
                                     <div ng-switch-when="individual">
-                                        <form id="storeIndividualRegisterForm">
+                                        <div id="storeIndividualRegisterForm">
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อ - นามสกุล ผู้ลงทะเบียน</label>
                                                 <span class="summary-value" ng-bind="user.summaryValue(user.signupInfoLastModified.store.individual.register.firstName)" style="margin-right: 4px;"></span>
@@ -499,8 +499,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
-                                        <form id="storeIndividualContactForm">
+                                        </div>
+                                        <div id="storeIndividualContactForm">
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อ - นามสกุล ผู้ติดต่อ</label>
                                                 <span class="summary-value" ng-bind="user.summaryValue(user.signupInfoLastModified.store.individual.contact.firstName)" style="margin-right: 4px;"></span>
@@ -534,10 +534,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                     <div ng-switch-when="company">
-                                        <form id="storeCompanyRegisterForm">
+                                        <div id="storeCompanyRegisterForm">
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อนิติบุคคล</label>
                                                 <span class="summary-value" ng-bind="user.summarySelectValue(user.companyPrefixes, user.signupInfoLastModified.store.company.register.companyPrefix)"></span>
@@ -571,11 +571,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                         <div>
                                             <label>ผู้ติดต่อ</label>
                                         </div>
-                                        <form id="storeCompanyContactForm">
+                                        <div id="storeCompanyContactForm">
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อ - นามสกุล</label>
                                                 <span class="summary-value" ng-bind="user.summaryValue(user.signupInfoLastModified.store.company.contact.firstName)" style="margin-right: 4px;"></span>
@@ -609,7 +609,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -674,7 +674,7 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-5 col-md-push-1">
-                                <form id="addressPickupForm">
+                                <div id="addressPickupForm">
                                     <h1>ที่อยู่การรับสินค้า</h1>
                                     <div class="form-group">
                                         <label class="control-label">รหัสไปรษณีย์</label>
@@ -696,10 +696,10 @@
                                         <label class="control-label">ที่อยู่</label>
                                         <span class="summary-value" ng-bind="user.summaryValue(user.signupInfoLastModified.address.pickup.other)"></span>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                             <div class="col-md-5 col-md-push-2">
-                                <form id="addressDocumentDropForm">
+                                <div id="addressDocumentDropForm">
                                     <h1>ที่อยู่การส่งเอกสาร</h1>
                                     <div class="form-group">
                                         <label class="control-label">รหัสไปรษณีย์</label>
@@ -721,7 +721,7 @@
                                         <label class="control-label">ที่อยู่</label>
                                         <span class="summary-value" ng-bind="user.summaryValue(user.signupInfoLastModified.address.documentDrop.other)"></span>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
