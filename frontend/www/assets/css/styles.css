@@ -447,6 +447,15 @@ section#why .why-item {
 section#why .why-item img {
   margin: 0 auto;
 }
+section#kToey {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+section#kToey img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 section#howToSell .how-to-sell p {
   font-size: 16pt;
 }
