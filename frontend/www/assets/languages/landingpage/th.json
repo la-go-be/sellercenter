@@ -22,17 +22,17 @@
             "heading": "ประโยชน์ของการขายกับ Lagobe",
             "items": [{
                 "fa-icon": "fa-bullseye",
-                "icon": "assets/img/freeze/icon-01.png",
+                "icon": "assets/img/icon-01.png",
                 "heading": "เจาะกลุ่มชัดเจน",
                 "content": "ศูนย์รวมสินค้าเสื้อผ้าแฟชั่นสำหรับเพศทางเลือกแห่งแรกของเอเชีย"
             }, {
                 "fa-icon": "fa-flask",
-                "icon": "assets/img/freeze/icon-02.png",
+                "icon": "assets/img/icon-02.png",
                 "heading": "ทดลองตลาด",
                 "content": "เจ้าของแบรนด์ที่อยากทดลองเจาะตลาดกลุ่มเพศทางเลือกผ่านช่องทางการขายใหม่"
             }, {
                 "fa-icon": "fa-money",
-                "icon": "assets/img/freeze/icon-03.png",
+                "icon": "assets/img/icon-03.png",
                 "heading": "เพิ่มช่องทางขาย",
                 "content": "มีสินค้าเฉพาะ แต่เข้าถึงกลุ่มเป้าหมายได้ยาก สามารถสมัครขายกับเราได้ฟรี โดยที่จะไม่มีค่าใช้จ่ายใดๆทั้งสิ้นในการวางขายกับเรา"
             }],
@@ -65,17 +65,17 @@
         },
         "review": {
             "items": [{
-                "picture": "assets/img/freeze/profile_1.png",
+                "picture": "assets/img/profile_1.png",
                 "name": "M Lady",
                 "position": "Owner, the fine clothing store",
                 "comment": "Ever since I've been using Lagobe to reach more targeted customers, my sales have increased 400% without even leaving my house!"
             }, {
-                "picture": "assets/img/freeze/profile_2.png",
+                "picture": "assets/img/profile_2.png",
                 "name": "M Knight Shayaya",
                 "position": "Owner, boy playground",
                 "comment": "Ever since I've been using Lagobe to reach more targeted customers, my sales have increased 400% without even leaving my house!"
             }, {
-                "picture": "assets/img/freeze/profile_3.jpg",
+                "picture": "assets/img/profile_3.jpg",
                 "name": "M Lady",
                 "position": "Owner, the fine clothing store",
                 "comment": "Ever since I've been using Lagobe to reach more targeted customers, my sales have increased 400% without even leaving my house!"
@@ -122,7 +122,7 @@
                 "field": "E-mail",
                 "value": "hello@lagobe.com"
             },
-            "qr-code": "assets/img/freeze/qrcode.svg"
+            "qr-code": "assets/img/qrcode.svg"
         }
     }
 }
