@@ -1,0 +1,22 @@
+lgbsc-backend
+  build:
+    image: lagobetech/lgbsc-backend:1.0.5
+    context: backend
+  environment:
+    NODE_ENV: "develop"
+  cached: true
+lgbsc-frontend
+  build:
+    image: lagobetech/lgbsc-frontend:1.0.13
+    context: frontend
+  volumes:
+    - /etc/letsencrypt:/etc/letsencrypt
+    - /tmp/letsencrypt:/tmp/letsencrypt
+  cached: true
+awsdeployment
+  image: codeship/aws-deployment
+  encrypted_env_file: aws-deployment.env.encrypted
+  environment:
+    - AWS_DEFAULT_REGION=ap-southeast-1
+  volumes:
+    - ./:/deploy
