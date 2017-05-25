@@ -1,6 +1,8 @@
 - service: lgbscbackend
   type: push
-  image_name: lagobetech/lgbsc-backend:1.0.5
+  image_name: lagobetech/lgbsc-backend
+  tag: 1.0.5
 - service: lgbscfrontend
   type: push
-  image_name: lagobetech/lgbsc-frontend:1.0.13
+  image_name: lagobetech/lgbsc-frontend
+  tag: 1.0.13
