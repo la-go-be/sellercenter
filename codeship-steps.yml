@@ -1,2 +1,2 @@
 - service: awsdeployment
-  command: codeship_aws eb_deploy . lagobe-sc lagobe-sc-dev elasticbeanstalk-ap-southeast-1-327603396442
+  command: codeship_aws eb_deploy /deploy lagobe-sc lagobe-sc-dev elasticbeanstalk-ap-southeast-1-327603396442
