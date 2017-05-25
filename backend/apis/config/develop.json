@@ -1,9 +1,9 @@
 {
     "database": {
         "driver": "mysql",
-        "host": "aa40k3s8v9w3er.c9xkyd68xrpr.ap-southeast-1.rds.amazonaws.com",
-        "name": "ebdb",
+        "host": "lagobe-sc.c9xkyd68xrpr.ap-southeast-1.rds.amazonaws.com",
+        "name": "lagobe_sc",
         "user": "lagobe",
-        "password": "mnbvcxzA"
+        "password": "*eb0Gal*"
     }
 }
