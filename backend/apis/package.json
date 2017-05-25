@@ -20,6 +20,7 @@
     "multer-s3": "^2.7.0",
     "mysql": "^2.13.0",
     "nodemailer": "^4.0.1",
+    "nodemailer-ses-transport": "^1.5.1",
     "node-mysql-importer": "0.0.10",
     "sequelize": "^3.24.3"
   },
