@@ -1,2 +1,6 @@
-- service: awsdeployment
-  command: codeship_aws eb_deploy /deploy lagobe-sc lagobe-sc-dev elasticbeanstalk-ap-southeast-1-327603396442
+- service: lgbscbackend
+  type: push
+  image_name: lagobetech/lgbsc-backend:1.0.5
+- service: lgbscfrontend
+  type: push
+  image_name: lagobetech/lgbsc-frontend:1.0.13
