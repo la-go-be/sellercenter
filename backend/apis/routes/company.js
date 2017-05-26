@@ -7,3 +7,34 @@ module.exports = [
         callback: companyCtrl.getCompanyPrefixes
     }
 ];
+
+/**
+ * @swagger
+ * definition:
+ *   CompanyPrefixItems:
+ *     type: array
+ *     items:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: number
+ *         name:
+ *           type: string
+ */
+
+
+/**
+ * @swagger
+ * /companies/prefixes:
+ *   get:
+ *     tags:
+ *       - Company
+ *     summary: Get company prefix items
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: Company prefix items
+ *         schema:
+ *           $ref: '#/definitions/CompanyPrefixItems'
+ */

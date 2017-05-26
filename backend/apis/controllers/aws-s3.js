@@ -18,7 +18,6 @@ function getSignedUrl(req, res) {
     var s3BasePath = config.aws.s3BasePath;
     var awsS3Key = req.query.awsS3Key;
     
-    var fileName = req.params.fileName;
     var params = {
         Bucket: config.aws.s3Bucket,
         Key: awsS3Key

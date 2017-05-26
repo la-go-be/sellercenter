@@ -12,3 +12,39 @@ module.exports = [
     //    callback: authCtrl.refreshToken
     //}
 ];
+
+/**
+ * @swagger
+ * definition:
+ *   Authenticate:
+ *     type: object
+ *     properties:
+ *       email:
+ *         type: string
+ *       password:
+ *         type: string
+ */
+
+
+/**
+ * @swagger
+ * /authenticate:
+ *   post:
+ *     tags:
+ *       - Auth
+ *     summary: Authenticate
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: user
+ *         description: User
+ *         in: body
+ *         required: true
+ *         schema:
+ *           $ref: '#/definitions/Authenticate'
+ *     responses:
+ *       200:
+ *         description: User profile
+ *         schema:
+ *           $ref: '#/definitions/UserProfile'
+ */
