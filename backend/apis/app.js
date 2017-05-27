@@ -7,24 +7,11 @@ var routes = require('./routes/'); //routes are defined here
 var expressJwt = require('express-jwt');
 var guard = require('express-jwt-permissions')();
 var jwt = require('jsonwebtoken');
+var url = require('url');
 var swaggerJSDoc = require('swagger-jsdoc');
 
 
 var app = express(); //Create the Express app
-
-var swaggerSpec = swaggerJSDoc({
-    swaggerDefinition: {
-        info: {
-            title: 'LAGOBE API',
-            version: '1.0.0',
-            description: 'Describe descriptipn of RESTful API',
-        },
-        //host: 'localhost:8000',
-        basePath: '/',
-    },
-    apis: ['./routes/*.js'],
-});
-
 
 // use body parser so we can get info from POST and/or URL parameters
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -51,6 +38,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes); //This is our route middleware
 
 app.get('/docs/swagger.json', function (req, res) {
+    var pathName = url.parse(req.headers.referer).pathname;
+    var swaggerSpec = swaggerJSDoc({
+        swaggerDefinition: {
+            info: {
+                title: 'LAGOBE API',
+                version: '1.0.0',
+                description: 'Describe descriptipn of RESTful API',
+            },
+            //host: 'localhost:8000',
+            basePath: (/^\/apis\//.test(pathName)? '/apis/': '/'),
+        },
+        apis: ['./routes/*.js']
+    });
+    
     res.setHeader('Content-Type', 'application/json');
     res.send(swaggerSpec);
 });
