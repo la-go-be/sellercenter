@@ -10,15 +10,16 @@ module.exports = [
 
 /**
  * @swagger
- * CompanyPrefixItems:
- *   type: array
- *   items:
- *     type: object
- *     properties:
- *       id:
- *         type: integer
- *       name:
- *         type: string
+ * definition:
+ *   CompanyPrefixItems:
+ *     type: array
+ *     items:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *         name:
+ *           type: string
  */
 
 

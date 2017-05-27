@@ -19,7 +19,7 @@ var swaggerSpec = swaggerJSDoc({
             version: '1.0.0',
             description: 'Describe descriptipn of RESTful API',
         },
-        host: 'localhost:8000',
+        //host: 'localhost:8000',
         basePath: '/',
     },
     apis: ['./routes/*.js'],

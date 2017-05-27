@@ -15,13 +15,14 @@ module.exports = [
 
 /**
  * @swagger
- * Authenticate:
- *   type: object
- *   properties:
- *     email:
- *       type: string
- *     password:
- *       type: string
+ * definition:
+ *   Authenticate:
+ *     type: object
+ *     properties:
+ *       email:
+ *         type: string
+ *       password:
+ *         type: string
  */
 
 

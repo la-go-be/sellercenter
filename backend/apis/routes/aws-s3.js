@@ -15,18 +15,19 @@ module.exports = [
 
 /**
  * @swagger
- * AWSS3URL:
- *   type: object
- *   properties:
- *     awsS3URL:
- *       type: string
- * AWSS3Upload:
- *   type: object
- *   properties:
- *     awsS3URL:
- *       type: string
- *     awsS3Key:
- *       type: string
+ * definition:
+ *   AWSS3URL:
+ *     type: object
+ *     properties:
+ *       awsS3URL:
+ *         type: string
+ *   AWSS3Upload:
+ *     type: object
+ *     properties:
+ *       awsS3URL:
+ *         type: string
+ *       awsS3Key:
+ *         type: string
  */
 
 

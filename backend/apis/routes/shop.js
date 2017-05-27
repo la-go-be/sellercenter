@@ -15,155 +15,156 @@ module.exports = [
 
 /**
  * @swagger
- * ShopDetail:
- *   type: object
- *   properties:
- *     store:
- *       type: object
- *       properties:
- *         storeName:
- *           type: string
- *         businessType:
- *           type: string
- *         individual:
- *           type: object
- *           properties:
- *             register:
- *               type: object
- *               properties:
- *                 firstName:
- *                   ype: string
- *                 lastName:
- *                   type: string
- *                 citizenID:
- *                   type: string
- *                 phone:
- *                   type: string
- *                 lineID:
- *                   type: string
- *                 email:
- *                   type: string
- *                 facebook:
- *                   type: string
- *             isContactSameRegister:
- *               type: boolean
- *             contact:
- *               type: object
- *               properties:
- *                 firstName:
- *                   type: string
- *                 lastName:
- *                   type: string
- *                 citizenID:
- *                   type: string
- *                 phone:
- *                   type: string
- *                 lineID:
- *                   type: string
- *                 email:
- *                   type: string
- *                 facebook:
- *                   type: string
- *             document:
- *               type: object
- *               properties:
- *                 citizenCard:
- *                   type: string
- *                 homeRegister:
- *                   type: string
- *         company:
- *           type: object
- *           properties:
- *             register:
- *               type: object
- *               properties:
- *                 companyPrefix:
- *                   type: string
- *                 companyName:
- *                   type: string
- *                 taxID:
- *                   type: string
- *                 phone:
- *                   type: string
- *                 lineID:
- *                   type: string
- *                 email:
- *                   type: string
- *                 facebook:
- *                   type: string
- *             contact:
- *               type: object
- *               properties:
- *                 firstName:
- *                   type: string
- *                 lastName:
- *                   type: string
- *                 citizenID:
- *                   type: string
- *                 phone:
- *                   type: string
- *                 lineID:
- *                   type: string
- *                 email:
- *                   type: string
- *                 facebook:
- *                   type: string
- *             document:
- *               type: object
- *               properties:
- *                 companyCertificate:
- *                   type: string
- *                 tradeRegister:
- *                   type: string          
- *     bank:
- *       type: object
- *       properties:
- *         bankID:
- *           type: string
- *         bankBranch:
- *           type: string
- *         accountNumber:
- *           type: string
- *         accountType:
- *           type: string
- *         accountName:
- *           type: string
- *     address:
- *       type: object
- *       properties:
- *         pickup:
- *           type: object
- *           properties:
- *             zipCode:
- *               type: string
- *             province:
- *               type: string
- *             amphur:
- *               type: string
- *             district:
- *               type: string
- *             other:
- *               type: string
- *         isDocumentDropSamePickup:
- *           type: boolean
- *         documentDrop:
- *           type: object
- *           properties:
- *             zipCode:
- *               type: string
- *             province:
- *               type: string
- *             amphur:
- *               type: string
- *             district:
- *               type: string
- *             other:
- *               type: string
- * ShopResultSuccess:
- *   type: object
- *   properties:
- *     success:
- *       type: boolean
+ * definition:
+ *   ShopDetail:
+ *     type: object
+ *     properties:
+ *       store:
+ *         type: object
+ *         properties:
+ *           storeName:
+ *             type: string
+ *           businessType:
+ *             type: string
+ *           individual:
+ *             type: object
+ *             properties:
+ *               register:
+ *                 type: object
+ *                 properties:
+ *                   firstName:
+ *                     type: string
+ *                   lastName:
+ *                     type: string
+ *                   citizenID:
+ *                     type: string
+ *                   phone:
+ *                     type: string
+ *                   lineID:
+ *                     type: string
+ *                   email:
+ *                     type: string
+ *                   facebook:
+ *                     type: string
+ *               isContactSameRegister:
+ *                 type: boolean
+ *               contact:
+ *                 type: object
+ *                 properties:
+ *                   firstName:
+ *                     type: string
+ *                   lastName:
+ *                     type: string
+ *                   citizenID:
+ *                     type: string
+ *                   phone:
+ *                     type: string
+ *                   lineID:
+ *                     type: string
+ *                   email:
+ *                     type: string
+ *                   facebook:
+ *                     type: string
+ *               document:
+ *                 type: object
+ *                 properties:
+ *                   citizenCard:
+ *                     type: string
+ *                   homeRegister:
+ *                     type: string
+ *           company:
+ *             type: object
+ *             properties:
+ *               register:
+ *                 type: object
+ *                 properties:
+ *                   companyPrefix:
+ *                     type: string
+ *                   companyName:
+ *                     type: string
+ *                   taxID:
+ *                     type: string
+ *                   phone:
+ *                     type: string
+ *                   lineID:
+ *                     type: string
+ *                   email:
+ *                     type: string
+ *                   facebook:
+ *                     type: string
+ *               contact:
+ *                 type: object
+ *                 properties:
+ *                   firstName:
+ *                     type: string
+ *                   lastName:
+ *                     type: string
+ *                   citizenID:
+ *                     type: string
+ *                   phone:
+ *                     type: string
+ *                   lineID:
+ *                     type: string
+ *                   email:
+ *                     type: string
+ *                   facebook:
+ *                     type: string
+ *               document:
+ *                 type: object
+ *                 properties:
+ *                   companyCertificate:
+ *                     type: string
+ *                   tradeRegister:
+ *                     type: string          
+ *       bank:
+ *         type: object
+ *         properties:
+ *           bankID:
+ *             type: string
+ *           bankBranch:
+ *             type: string
+ *           accountNumber:
+ *             type: string
+ *           accountType:
+ *             type: string
+ *           accountName:
+ *             type: string
+ *       address:
+ *         type: object
+ *         properties:
+ *           pickup:
+ *             type: object
+ *             properties:
+ *               zipCode:
+ *                 type: string
+ *               province:
+ *                 type: string
+ *               amphur:
+ *                 type: string
+ *               district:
+ *                 type: string
+ *               other:
+ *                 type: string
+ *           isDocumentDropSamePickup:
+ *             type: boolean
+ *           documentDrop:
+ *             type: object
+ *             properties:
+ *               zipCode:
+ *                 type: string
+ *               province:
+ *                 type: string
+ *               amphur:
+ *                 type: string
+ *               district:
+ *                 type: string
+ *               other:
+ *                 type: string
+ *   ShopResultSuccess:
+ *     type: object
+ *     properties:
+ *       success:
+ *         type: boolean
  *                 
  */
 
