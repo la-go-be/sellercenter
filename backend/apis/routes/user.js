@@ -10,33 +10,32 @@ module.exports = [
 
 /**
  * @swagger
- * definition:
- *   UserInfo:
- *     type: object
- *     properties:
- *       email:
+ * UserInfo:
+ *   type: object
+ *   properties:
+ *     email:
+ *       type: string
+ *     password:
  *         type: string
- *       password:
- *         type: string
- *       firstName:
- *         type: string
- *       lastName:
- *         type: string
- *       phone:
- *         type: string
- *   UserProfile:
- *     type: object
- *     properties:
- *       id:
- *         type: number
- *       email:
- *         type: string
- *       firstName:
- *         type: string
- *       lastName:
- *         type: string
- *       phone:
- *         type: string
+ *     firstName:
+ *       type: string
+ *     lastName:
+ *       type: string
+ *     phone:
+ *       type: string
+ * UserProfile:
+ *   type: object
+ *   properties:
+ *     id:
+ *       type: integer
+ *     email:
+ *       type: string
+ *     firstName:
+ *       type: string
+ *     lastName:
+ *       type: string
+ *     phone:
+ *       type: string
  */
 
 

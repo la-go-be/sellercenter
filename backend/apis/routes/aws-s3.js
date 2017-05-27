@@ -15,19 +15,18 @@ module.exports = [
 
 /**
  * @swagger
- * definition:
- *   AWSS3URL:
- *     type: object
- *     properties:
- *       awsS3URL:
- *         type: string
- *   AWSS3Upload:
- *     type: object
- *     properties:
- *       awsS3URL:
- *         type: string
- *       awsS3Key:
- *         type: string
+ * AWSS3URL:
+ *   type: object
+ *   properties:
+ *     awsS3URL:
+ *       type: string
+ * AWSS3Upload:
+ *   type: object
+ *   properties:
+ *     awsS3URL:
+ *       type: string
+ *     awsS3Key:
+ *       type: string
  */
 
 
@@ -67,7 +66,7 @@ module.exports = [
  *         description: User account ID
  *         in: path
  *         required: true
- *         type: number
+ *         type: integer
  *       - name: documentName
  *         description: Document name
  *         in: query

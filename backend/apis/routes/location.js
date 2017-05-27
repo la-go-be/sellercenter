@@ -20,11 +20,10 @@ module.exports = [
 
 /**
  * @swagger
- * definition:
- *   LocationFieldItems:
- *     type: array
- *     items:
- *       type: string
+ * LocationFieldItems:
+ *   type: array
+ *   items:
+ *     type: string
  */
 
 
