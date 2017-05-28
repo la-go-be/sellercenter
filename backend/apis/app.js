@@ -38,7 +38,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes); //This is our route middleware
 
 app.get('/docs/swagger.json', function (req, res) {
-    var pathName = url.parse(req.headers.referer).pathname;
+    if (req.headers.referer) {
+        var pathName = url.parse(req.headers.referer).pathname;
+        var swaggerDefBasePath = pathName.substring(0, pathName.indexOf('/docs/'));
+    }
+    else{
+        var swaggerDefBasePath = '/';
+    }
     var swaggerSpec = swaggerJSDoc({
         swaggerDefinition: {
             info: {
@@ -47,7 +53,7 @@ app.get('/docs/swagger.json', function (req, res) {
                 description: 'Describe descriptipn of RESTful API',
             },
             //host: 'localhost:8000',
-            basePath: (/^\/apis\//.test(pathName)? '/apis/': '/'),
+            basePath: swaggerDefBasePath
         },
         apis: ['./routes/*.js']
     });
