@@ -456,22 +456,26 @@ section#kToey img {
   width: 100%;
   height: auto;
 }
-section#howToSell .how-to-sell p {
+section#howToSell .how-to-sell .overview-content {
+  display: inline-block;
+  text-align: left;
+}
+section#howToSell .how-to-sell .overview-content p {
   font-size: 16pt;
 }
-section#howToSell .how-to-sell ul {
+section#howToSell .how-to-sell .overview-content ul {
   margin: 0px;
   padding: 0px;
   list-style-type: none;
 }
-section#howToSell .how-to-sell ul li {
+section#howToSell .how-to-sell .overview-content ul li {
   font-size: 20pt;
   line-height: 50px;
 }
-section#howToSell .how-to-sell ul li i.fa {
+section#howToSell .how-to-sell .overview-content ul li i.fa {
   padding-right: 6px;
 }
-section#howToSell .how-to-sell img {
+section#howToSell .how-to-sell .figure img {
   margin-top: 51px;
 }
 section#store .store-item {
@@ -915,6 +919,9 @@ form textarea.form-control {
   line-height: normal;
 }
 @media screen and (max-width: 640px) {
+  .col-xs-special {
+    width: 100%;
+  }
   .logo {
     width: auto;
     height: 48px;
@@ -987,6 +994,39 @@ form textarea.form-control {
     -ms-border-radius: 5em;
     -o-border-radius: 5em;
     border-radius: 5em;
+  }
+  section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .section-heading {
+    margin-bottom: 30px;
+  }
+  .section-heading h1 {
+    margin-top: 10px;
+    font-size: 39px;
+  }
+  section#why .why-item {
+    padding: 0px;
+  }
+  section#why .why-item .figure {
+    padding: 0 15%;
+  }
+  section#why .why-item h3 {
+    margin-top: 10px;
+  }
+  section#howToSell .how-to-sell .overview-content h1 {
+    font-size: 20pt;
+    margin-top: 10px;
+  }
+  section#howToSell .how-to-sell .overview-content p {
+    font-size: 12pt;
+  }
+  section#howToSell .how-to-sell .overview-content ul li {
+    font-size: 14pt;
+  }
+  section#howToSell .how-to-sell .figure img {
+    margin-bottom: 15px;
   }
 }
 .gdocsviewer {
@@ -1082,6 +1122,16 @@ notify-saved {
   40% {
     transform: scale(1);
     -webkit-transform: scale(1);
+  }
+}
+@media (max-width: 767px) {
+  section#howToSell .how-to-sell .overview {
+    text-align: center;
+  }
+  section#howToSell .how-to-sell .figure img {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media (min-width: 768px) {
@@ -1241,7 +1291,7 @@ section#howToSell {
 section#howToSell .how-to-sell {
   color: #ffffff;
 }
-section#howToSell .how-to-sell h1 {
+section#howToSell .how-to-sell .overview-content h1 {
   color: #ffffff;
 }
 section#howToSell a.find-out-more {

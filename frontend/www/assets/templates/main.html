@@ -6,10 +6,11 @@
         </div>
 
         <div class="row">
-            <div ng-repeat="item in main.label['main']['why']['items']" class="col-md-4 col-sm-4 col-xs-12">
+            <div ng-repeat="item in main.label['main']['why']['items']" class="col-md-4 col-sm-4 col-xs-4 col-xs-special">
                 <div scroll-visible class="why-item scrollpoint sp-effect5">
 <!--                            <i class="fa {{item['fa-icon']}} fa-5x"></i>-->
-                    <img ng-src="{{item['icon']}}" class="img-responsive" />
+                    <!--<img ng-src="{{item['icon']}}" class="img-responsive" />-->
+                    <div class="figure"><img ng-src="{{item['icon']}}" class="img-responsive" /></div>
                     <h3>{{item['heading']}}</h3>
                     <p>{{item['content']}}</p>
                 </div>
@@ -30,14 +31,16 @@
     <div class="container">
         <div class="how-to-sell">
             <div class="row">
-                <div scroll-visible class="col-md-7 col-sm-7 scrollpoint sp-effect1">
-                    <h1>{{main.label['main']['how-to-sell']['title']}}</h1>
-                    <p>{{main.label['main']['how-to-sell']['paragraph']}}</p>
-                    <ul>
-                        <li ng-repeat="text in main.label['main']['how-to-sell']['items']"><i class="fa fa-check-circle"></i> {{text}}</li>
-                    </ul>
+                <div scroll-visible class="overview col-md-7 col-sm-7 scrollpoint sp-effect1">
+                    <div class="overview-content">
+                        <h1>{{main.label['main']['how-to-sell']['title']}}</h1>
+                        <p>{{main.label['main']['how-to-sell']['paragraph']}}</p>
+                        <ul>
+                            <li ng-repeat="text in main.label['main']['how-to-sell']['items']"><i class="fa fa-check-circle"></i> {{text}}</li>
+                        </ul>
+                    </div>
                 </div>
-                <div scroll-visible class="col-md-5 col-sm-5 scrollpoint sp-effect4">
+                <div scroll-visible class="figure col-md-5 col-sm-5 scrollpoint sp-effect4">
                     <img src="assets/img/how-to-sell.png" class="img-responsive" alt="">
                 </div>
             </div>

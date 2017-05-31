@@ -397,26 +397,32 @@ section#kToey {
 }
 section#howToSell {
     .how-to-sell {
-        p {
-            font-size: 16pt;
-        }
-
-        ul {
-            margin: 0px;
-            padding: 0px;
-            list-style-type: none;
-            li {
-                font-size: 20pt;
-                line-height: 50px;
-                i.fa{
-                    padding-right: 6px;
+        .overview {
+            &-content {
+                display: inline-block;
+                text-align: left;
+                p {
+                    font-size: 16pt;
+                }
+                ul {
+                    margin: 0px;
+                    padding: 0px;
+                    list-style-type: none;
+                    li {
+                        font-size: 20pt;
+                        line-height: 50px;
+                        i.fa{
+                            padding-right: 6px;
+                        }
+                    }
                 }
             }
         }
-        
-        img {
-            margin-top: 51px;
-        }
+        .figure {
+            img {
+                margin-top: 51px;
+            }
+        }   
     }
 }
 section#store {
@@ -828,6 +834,10 @@ form {
 }
 
 @media screen and (max-width: 640px) {
+    .col-xs-special {
+        width: 100%;
+    }
+    
 	.logo{
 		width: auto;
 		height: 48px;
@@ -894,6 +904,57 @@ form {
 			}
 		}
 	}
+    
+    section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    
+    .section-heading {
+        margin-bottom: 30px;
+        h1 {
+            margin-top: 10px;
+            font-size: 39px;
+        }
+    }
+    
+    section#why {
+        .why-item {
+            padding: 0px;
+            .figure {
+                padding: 0 15%;
+            }
+            h3 {
+                margin-top: 10px;
+            }
+        }
+    }
+    
+    section#howToSell {
+        .how-to-sell {
+            .overview {
+                &-content {
+                    h1 {
+                        font-size: 20pt;
+                        margin-top: 10px;
+                    }
+                    p {
+                        font-size: 12pt;
+                    }
+                    ul {
+                        li {
+                            font-size: 14pt;
+                        }
+                    } 
+                }
+            }
+            .figure {
+                img {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
 }
 
 .gdocsviewer {
@@ -994,6 +1055,23 @@ notify-saved {
     transform: scale(1.0);
     -webkit-transform: scale(1.0);
   }
+}
+
+@media (max-width: 767px) {
+    section#howToSell {
+        .how-to-sell {
+            .overview {
+                text-align: center;
+            }
+            .figure {
+                img {
+                    max-width: 80%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: 768px) {
