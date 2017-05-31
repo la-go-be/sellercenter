@@ -1,13 +1,18 @@
 {
   "name": "lagobe-admin",
   "version": "1.0.0",
-  "description": "Hello Market",
-  "main": "index.js",
+  "description": "Lagobe Seller Center for admin frontend",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/la-go-be/sellercenter.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Manit Kwanyun",
   "license": "ISC",
+  "homepage": "https://adm.sc.lagobe.com",
   "devDependencies": {
     "babel-preset-es2015": "^6.24.0",
     "babelify": "^7.3.0",

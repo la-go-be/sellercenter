@@ -1,11 +1,17 @@
 {
   "name": "Lagobe-API",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Lagobe Seller Center backend",
   "private": true,
   "scripts": {
     "test": "SET \"NODE_ENV=test\" && mocha --recursive --timeout 10000"
   },
   "main": "./bin/www",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/la-go-be/sellercenter.git"
+  },
+  "author": "Manit Kwanyun",
   "dependencies": {
     "aws-sdk": "^2.41.0",
     "body-parser": "^1.15.2",
