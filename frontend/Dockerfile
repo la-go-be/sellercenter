@@ -28,6 +28,7 @@ RUN chmod 644                   /etc/logrotate.d/nginx && \
 # Add files and folders of wep application
 COPY www/                       /usr/share/nginx/html/www
 COPY admin/                     /usr/share/nginx/html/admin
+COPY coming-soon/               /usr/share/nginx/html/coming-soon
 
 # Configure Supervisord
 ADD supervisord.conf          	/etc/supervisord.conf
