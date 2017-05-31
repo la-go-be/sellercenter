@@ -125,15 +125,15 @@
             "environment": [
                 {
                   "name": "WORDPRESS_DB_HOST",
-                  "value": "mylineme-blog.c9xkyd68xrpr.ap-southeast-1.rds.amazonaws.com"
+                  "value": "lagobe-sc.c9xkyd68xrpr.ap-southeast-1.rds.amazonaws.com"
                 },
                 {
                   "name": "WORDPRESS_DB_USER",
-                  "value": "mylineme"
+                  "value": "lagobe"
                 },
                 {
                   "name": "WORDPRESS_DB_PASSWORD",
-                  "value": "mnbvcxzA"
+                  "value": "*eb0Gal*"
                 },
                 {
                   "name": "WORDPRESS_DB_NAME",
