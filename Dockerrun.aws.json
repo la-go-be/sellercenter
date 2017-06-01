@@ -47,7 +47,7 @@
         },
         {
             "name": "www",
-            "image": "lagobetech/lgbsc-frontend:1.0.16",
+            "image": "lagobetech/lgbsc-frontend:1.0.17",
             "essential": true,
             "memoryReservation": 128,
             "portMappings": [

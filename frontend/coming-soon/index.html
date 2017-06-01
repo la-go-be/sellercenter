@@ -49,6 +49,39 @@
             }
             #bgbase{
                 position:absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;
+                
+                display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+                display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+                display: -ms-flexbox; /* TWEENER - IE 10 */
+                display: -webkit-flex; /* NEW - Chrome */
+                display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+                
+                -ms-flex-pack: center;
+                -moz-box-pack: center;
+                -webkit-box-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                
+                -webkit-box-align: center;
+                -webkit-align-items: center;
+                -moz-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+            
+            #bgbase > img {
+                display: block;
+            }
+            
+            @media (max-aspect-ratio: 16/9) {
+                #bgbase > img {
+                    min-height: 100%;
+                }
+            }
+            @media (min-aspect-ratio: 16/9) {
+                #bgbase > img {
+                    min-width: 100%;
+                }
             }
             
             /*.coming-soon {
@@ -71,11 +104,16 @@
             </div>
         </div>-->
         <div id="bgbase">
-            <img src="images/iamcomingsoon.jpg" width="100%" height="100%" style="display: block;" />
+            <img src="images/iamcomingsoon.jpg" />
         </div>
-        <div id="bgtop"></div>
+        
+        <!--<div class="header-background">
+            <img src="assets/img/Lagobe_SellerCenter_www_H.jpg" />
+        </div>-->
+        
+        <!--<div id="bgtop"></div>
         <div id="bgright"></div>
         <div id="bgbottom"></div>
-        <div id="bgleft"></div>
+        <div id="bgleft"></div>-->
     </body>
 </html>
