@@ -24,6 +24,12 @@
             "host": {
                 "sourcePath": "/var/run/docker.sock"
             }
+        },
+        {
+            "name": "wordpress-wp-content",
+            "host": {
+                "sourcePath": "/tmp/wordpress/wp-content"
+            }
         }
     ],
     "containerDefinitions": [
@@ -146,6 +152,12 @@
                 {
                     "hostPort": 8080,
                     "containerPort": 80
+                }
+            ],
+            "mountPoints": [
+                {
+                    "sourceVolume": "wordpress-wp-content",
+                    "containerPath": "/var/www/html/wp-content"
                 }
             ]
         }
