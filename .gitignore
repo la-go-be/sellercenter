@@ -1,0 +1,10 @@
+frontend/www/node_modules/
+frontend/www/bower_components/
+frontend/admin/node_modules/
+frontend/admin/bower_components/
+backend/apis/node_modules/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

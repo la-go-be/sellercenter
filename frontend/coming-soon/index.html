@@ -3,8 +3,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=IE7">
-        <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>i am coming soon</title>
+        
+        <link rel="stylesheet" href="libs/flipclock/js/plugins/flipclock/flipclock.css"/>
         <style type="text/css">
             @font-face {
                 font-family: "SukhumvitSet-Text";
@@ -76,9 +78,26 @@
                 display: block;
             }
             
+            #countdown {
+                position:absolute; bottom: 14px; width: 400px; margin: 0 auto;
+            }
+            
+            .flipclock .section{
+                display: inline-block;
+                text-align: center;
+                font-size: 12pt;
+                font-weight: bold;
+                margin: 0 4px;
+            }
+            
+            ul.flip li div div.inn {
+                background-color: #000080;
+            }
+            
             @media (max-aspect-ratio: 16/9) {
                 #bgbase > img {
                     min-height: 100%;
+                    height: 100%;
                 }
             }
             @media (min-aspect-ratio: 16/9) {
@@ -96,10 +115,33 @@
     <body>
         <div id="bgbase">
             <img src="images/iamcomingsoon.jpg" />
+            <div id="countdown" align="center">
+                <div class="flipclock">
+                    <div class="section" data-section="day">DAY</div>
+                    <div class="section" data-section="hour">HOUR</div>
+                    <div class="section" data-section="minute">MIN</div>
+                    <div class="section" data-section="second">SEC</div>
+                </div>
+            </div>
         </div>
         <div id="bgtop"></div>
         <div id="bgright"></div>
         <div id="bgbottom"></div>
         <div id="bgleft"></div>
+        
+        <script src="libs/flipclock/js/libs/jquery/jquery-1.8.3.min.js"></script>
+        <!--<script src="libs/flipclock/js/libs/zepto/zepto.min.js"></script>-->
+        <script src="libs/flipclock/js/plugins/flipclock/flipclock.js"></script>
+        <script>
+            // Safari can't parse YYYY MM DD format
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse
+            (function () {
+                $('.flipclock').flipclock({
+                    countdown: '2017 07 07 00:17:00 GMT+0700'
+                    //, audio: '/js/plugins/flipclock/click.mp3'
+                });
+            })();
+        
+        </script>
     </body>
 </html>
