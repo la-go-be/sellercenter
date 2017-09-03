@@ -461,6 +461,7 @@ module.exports = function (sequelize, DataTypes) {
     function getSummaryByID(shopID) {
         return sequelize.query(`
             SELECT
+                shop.code,
                 shop.store_name,
                 CASE
                     WHEN shop.store_business_type = 'individual' THEN 'บุคคล'
@@ -523,6 +524,7 @@ module.exports = function (sequelize, DataTypes) {
         }).then(function(shop) {
             return {
                 store: {
+                    storeCode: shop[0].code,
                     storeName: shop[0].store_name,
                     businessType: shop[0].store_business_type,
                     individual: {

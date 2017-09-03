@@ -17,6 +17,7 @@ export class ShopController {
 	initDetail() {
 		this.info = {
             store: {
+				storeCode: "",
                 storeName: "",
                 businessType: "",
                 individual: {

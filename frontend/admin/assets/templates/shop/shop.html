@@ -25,6 +25,10 @@
                         <div class="col-md-5 col-md-push-1">
                             <h1>ข้อมูลร้านค้า</h1>
                             <div class="form-group">
+                                <label class="control-label">รหัสร้านค้า</label>
+                                <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.storeCode)"></span>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label">ชื่อร้านค้า</label>
                                 <span class="summary-value" ng-bind="shop.summaryValue(shop.info.store.storeName)"></span>
                             </div>
