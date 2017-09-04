@@ -31,6 +31,8 @@ module.exports = [
  *       store:
  *         type: object
  *         properties:
+ *           storeCode:
+ *             type: string
  *           storeName:
  *             type: string
  *           businessType:
