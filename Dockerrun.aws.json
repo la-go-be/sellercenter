@@ -53,7 +53,7 @@
         },
         {
             "name": "www",
-            "image": "lagobetech/lgbsc-frontend:1.0.22",
+            "image": "lagobetech/lgbsc-frontend:1.0.23",
             "essential": true,
             "memoryReservation": 128,
             "portMappings": [
@@ -86,7 +86,7 @@
             "environment": [
                 {
                   "name": "DOMAINS",
-                  "value": "sc.lagobe.com adm.sc.lagobe.com"
+                  "value": "sc.lagobe.com adm.sc.lagobe.com www.lagobe.com"
                 },
                 {
                   "name": "EMAIL",
