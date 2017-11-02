@@ -90,11 +90,7 @@
                 },
                 {
                   "name": "EMAIL",
-                  "value": "a@lagobe.com"
-                },
-                {
-                  "name": "SERVER_CONTAINER",
-                  "value": "www"
+                  "value": "hello@lagobe.com"
                 },
                 {
                   "name": "WEBROOT_PATH",
