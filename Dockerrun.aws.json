@@ -35,7 +35,7 @@
     "containerDefinitions": [
         {
             "name": "apis",
-            "image": "lagobetech/lgbsc-backend:1.0.8",
+            "image": "lagobetech/lgbsc-backend:1.0.9",
             "environment": [
                 {
                   "name": "NODE_ENV",
@@ -53,7 +53,7 @@
         },
         {
             "name": "www",
-            "image": "lagobetech/lgbsc-frontend:1.0.23",
+            "image": "lagobetech/lgbsc-frontend:1.0.24",
             "essential": true,
             "memoryReservation": 128,
             "portMappings": [
@@ -127,7 +127,7 @@
             "environment": [
                 {
                   "name": "WORDPRESS_DB_HOST",
-                  "value": "lagobe-sc.c9xkyd68xrpr.ap-southeast-1.rds.amazonaws.com"
+                  "value": "lagobe-db.c9xkyd68xrpr.ap-southeast-1.rds.amazonaws.com"
                 },
                 {
                   "name": "WORDPRESS_DB_USER",
@@ -135,7 +135,7 @@
                 },
                 {
                   "name": "WORDPRESS_DB_PASSWORD",
-                  "value": "*eb0Gal*"
+                  "value": "lagobe_db"
                 },
                 {
                   "name": "WORDPRESS_DB_NAME",
