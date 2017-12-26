@@ -1,0 +1,64 @@
+version: '2'
+services:
+  apis:
+    image: lagobetech/lgbsc-backend:1.0.9
+    environment:
+      NODE_ENV: develop
+    ports:
+      - 8000:8000
+    mem_limit: 134217728
+    networks:
+      lagobesc:
+        aliases:
+          - apis
+  www:
+    image: lagobetech/lgbsc-frontend:1.0.24
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - apis
+    mem_limit: 134217728
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /tmp/letsencrypt:/tmp/letsencrypt
+    networks:
+      lagobesc:
+        aliases:
+          - www
+  letsencrypt:
+    image: gordonchan/auto-letsencrypt
+    environment:
+      DOMAINS: sc.lagobe.com adm.sc.lagobe.com www.lagobe.com
+      EMAIL: hello@lagobe.com
+      WEBROOT_PATH: /tmp/letsencrypt
+    links:
+      - www
+    mem_limit: 134217728
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /var/lib/letsencrypt:/var/lib/letsencrypt
+      - /tmp/letsencrypt:/tmp/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      lagobesc:
+        aliases:
+          - letsencrypt
+  mylineme-blog:
+    image: wordpress
+    environment:
+      WORDPRESS_DB_HOST: lagobe-db.c9xkyd68xrpr.ap-southeast-1.rds.amazonaws.com
+      WORDPRESS_DB_USER: lagobe
+      WORDPRESS_DB_PASSWORD: lagobe_db
+      WORDPRESS_DB_NAME: mylineme_blog
+    ports:
+      - 8080:80
+    mem_limit: 134217728
+    volumes:
+      - /tmp/wordpress/wp-content:/var/www/html/wp-content
+    networks:
+      lagobesc:
+        aliases:
+          - mylinemeblog
+networks:
+  lagobesc:      
