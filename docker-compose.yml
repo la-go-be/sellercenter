@@ -12,7 +12,7 @@ services:
         aliases:
           - apis
   www:
-    image: lagobetech/lgbsc-frontend:1.0.24
+    image: lagobetech/lgbsc-frontend:1.0.25
     ports:
       - 80:80
       - 443:443
