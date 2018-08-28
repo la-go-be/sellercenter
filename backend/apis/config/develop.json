@@ -1,9 +1,9 @@
 {
     "database": {
         "driver": "mysql",
-        "host": "lagobe-db.c9xkyd68xrpr.ap-southeast-1.rds.amazonaws.com",
+        "host": "muime.ddns.net",
         "name": "lagobe_sc",
-        "user": "lagobe",
-        "password": "lagobe_db"
+        "user": "maindbme",
+        "password": "042D57dc10007165"
     }
 }

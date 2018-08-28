@@ -1,7 +1,7 @@
 version: '3'
 services:
   apis:
-    image: lagobetech/lgbsc-backend:1.0.9
+    image: lagobetech/lgbsc-backend:1.0.10
     restart: always
     deploy:
       resources:
@@ -16,7 +16,7 @@ services:
         aliases:
           - apis
   www:
-    image: lagobetech/lgbsc-frontend:1.0.29
+    image: lagobetech/lgbsc-frontend:1.0.30
     restart: always
     ports:
       - 80:80
@@ -34,6 +34,7 @@ services:
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
       - /tmp/letsencrypt:/tmp/letsencrypt
+      - /opt/docker/nginx/conf:/etc/nginx/conf.d
     networks:
       lagobesc:
         aliases:
