@@ -1,0 +1,41 @@
+version: '3'
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /tmp/letsencrypt:/tmp/letsencrypt
+      - ./conf:/etc/nginx/conf.d
+    networks:
+      lagobesc:
+        aliases:
+          - nginx
+  letsencrypt:
+    image: gordonchan/auto-letsencrypt
+    container_name: letsencrypt
+    restart: always
+    environment:
+      DOMAINS: sc.lagobe.com adm.sc.lagobe.com
+      EMAIL: hello@lagobe.com
+      WEBROOT_PATH: /tmp/letsencrypt
+      SERVER_CONTAINER: nginx
+    links:
+      - nginx
+    depends_on:
+      - nginx
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /var/lib/letsencrypt:/var/lib/letsencrypt
+      - /tmp/letsencrypt:/tmp/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      lagobesc:
+        aliases:
+          - letsencrypt
+networks:
+  lagobesc:

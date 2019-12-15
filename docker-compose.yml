@@ -2,6 +2,7 @@ version: '3'
 services:
   apis:
     image: lagobetech/lgbsc-backend:1.0.10
+    container_name: lgbsc-backend
     restart: always
     deploy:
       resources:
@@ -17,6 +18,7 @@ services:
           - apis
   www:
     image: lagobetech/lgbsc-frontend:1.0.30
+    container_name: lgbsc-frontend
     restart: always
     ports:
       - 80:80
@@ -41,6 +43,7 @@ services:
           - www
   letsencrypt:
     image: gordonchan/auto-letsencrypt
+    container_name: lgbsc-letsencrypt
     restart: always
     deploy:
       resources:
@@ -49,9 +52,10 @@ services:
       restart_policy:
         max_attempts: 3
     environment:
-      DOMAINS: sc.lagobe.com adm.sc.lagobe.com www.lagobe.com
+      DOMAINS: sc.lagobe.com adm.sc.lagobe.com
       EMAIL: hello@lagobe.com
       WEBROOT_PATH: /tmp/letsencrypt
+      SERVER_CONTAINER: lgbsc-frontend
     links:
       - www
     depends_on:
