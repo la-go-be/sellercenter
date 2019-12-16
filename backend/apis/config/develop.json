@@ -1,10 +1,9 @@
 {
     "database": {
         "driver": "mysql",
-        "host": "db-mysql-lagobe-sc-do-user-6224340-0.db.ondigitalocean.com",
-        "port": "25060",
+        "host": "้hisodev.hiso.tech",
         "name": "lagobe_sc",
-        "user": "doadmin",
-        "password": "y7073017rvgbsmfk"
+        "user": "Rroot",
+        "password": "123#EDC$RFVBNvcxz"
     }
 }

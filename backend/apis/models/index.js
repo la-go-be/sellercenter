@@ -8,11 +8,7 @@ var sequelize = new Sequelize(
   config.database.password,
   {
     host: config.database.host,
-    port: config.database.port,
     dialect: config.database.driver,
-    dialectOptions: {
-      ssl: true
-    },
     freezeTableName: true,
     pool: {
       max: 9,
@@ -23,6 +19,7 @@ var sequelize = new Sequelize(
 );
 
 var db = {};
+
 fs.readdirSync(__dirname)
   .filter(function(file) {
     return file.indexOf(".") !== 0 && file !== "index.js";
