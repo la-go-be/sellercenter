@@ -1,9 +1,10 @@
 {
     "database": {
         "driver": "mysql",
-        "host": "muime.ddns.net",
+        "host": "db-mysql-lagobe-sc-do-user-6224340-0.db.ondigitalocean.com",
+        "port": "25060",
         "name": "lagobe_sc",
-        "user": "maindbme",
-        "password": "042D57dc10007165"
+        "user": "doadmin",
+        "password": "y7073017rvgbsmfk"
     }
 }
