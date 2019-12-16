@@ -1,7 +1,7 @@
 {
     "database": {
         "driver": "mysql",
-        "host": "้hisodev.hiso.tech",
+        "host": "hisodev.hiso.tech",
         "name": "lagobe_sc",
         "user": "Rroot",
         "password": "123#EDC$RFVBNvcxz"
